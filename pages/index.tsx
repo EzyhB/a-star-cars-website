@@ -5,7 +5,8 @@ const Home: NextPage = () => {
   return (
     <div>
       <p>tgusa dsaidbsaidbsaiud </p>
-      <ButtonHollow>test button</ButtonHollow>
+      <ButtonHollow size="s">test button</ButtonHollow>
+      <div>this is a test</div>
     </div>
   );
 };
