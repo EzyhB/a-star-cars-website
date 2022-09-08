@@ -60,34 +60,4 @@ const GridItem = styled.div<Props>`
   } ;
 `;
 
-// const GridItem = styled.div<Props>`
-//   flex-grow: 0;
-//   box-sizing: box-border;
-//   flex-direction: row;
-//   @media (min-width: ${({ theme }) => theme.breakPoints.xs}) {
-//     flex-basis: ${({ xs }) => (xs ? gridSize[xs] : gridSize.twelve)};
-//     max-width: ${({ xs }) => (xs ? gridSize[xs] : gridSize.twelve)};
-//   }
-
-//   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
-//     flex-basis: ${({ sm }) => (sm ? gridSize[sm] : gridSize.twelve)};
-//     max-width: ${({ sm }) => (sm ? gridSize[sm] : gridSize.twelve)};
-//   }
-
-//   @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
-//     flex-basis: ${({ md }) => (md ? gridSize[md] : gridSize.twelve)};
-//     max-width: ${({ md }) => (md ? gridSize[md] : gridSize.twelve)};
-//   }
-
-//   @media (min-width: ${({ theme }) => theme.breakPoints.lg}) {
-//     flex-basis: ${({ lg }) => (lg ? gridSize[lg] : gridSize.twelve)};
-//     max-width: ${({ lg }) => (lg ? gridSize[lg] : gridSize.twelve)};
-//   }
-
-//   @media (min-width: ${({ theme }) => theme.breakPoints.xl}) {
-//     flex-basis: ${({ xl }) => (xl ? gridSize[xl] : gridSize.twelve)};
-//     max-width: ${({ xl }) => (xl ? gridSize[xl] : gridSize.twelve)};
-//   } ;
-// `;
-
 export { GridItem };

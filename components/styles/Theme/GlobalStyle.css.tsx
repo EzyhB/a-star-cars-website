@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         background: ${(props) => props.theme.pallette.background};
-        color: ${(props) => props.theme.pallette.text}
+        color: ${(props) => props.theme.pallette.text};
         font-family: 'Epilogue', sans-serif;
         font-size: 1.15rem;
     }
