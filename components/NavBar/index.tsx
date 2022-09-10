@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Container } from "../styles/Container";
+import { DropdownMenu } from "../styles/DropdownMenu";
 import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
@@ -66,7 +67,8 @@ export default function NavBar({ isLight, setIsLight }: Props) {
           md="four"
           xs="three"
         >
-          <div
+          <DropdownMenu setIsLight={setIsLight} isLight={isLight} />
+          {/* <div
             style={{ background: themeSwitchBackground }}
             className={css.themeSwitchBackground}
             onClick={() => {
@@ -83,7 +85,7 @@ export default function NavBar({ isLight, setIsLight }: Props) {
               }
               alt="theme switch button"
             />
-          </div>
+          </div> */}
         </GridItem>
       </GridContainer>
     </Container>
