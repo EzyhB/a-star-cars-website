@@ -48,16 +48,18 @@ const MenuAnchor = styled.a`
 
 const Dropdown = styled.div`
   position: absolute;
-  min-width: 200px;
+  min-width: 170px;
   top: 70px;
+  right: 40px;
   transform: translate(-45%);
   background-color: ${(props) => props.theme.pallette.primary};
   border-bottom: 1px solid ${(props) => props.theme.pallette.secondary};
   border-radius: 8px;
-  padding: 1rem 1rem;
+  padding: 1rem;
   overflow: hidden;
+
   animation: growDown 300ms ease-in-out forwards;
-  transform-origin: top center;
+  transform-origin: top;
 
   @keyframes growDown {
     0% {
