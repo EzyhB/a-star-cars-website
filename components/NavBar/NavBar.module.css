@@ -11,6 +11,7 @@
 
 .xsLogoGrid {
   display: flex;
+  /* background-color: rebeccapurple; */
 }
 
 .themeSwitchGrid {
@@ -34,8 +35,19 @@
   margin: auto;
 }
 
+.mdNavBar {
+  max-width: 100%;
+  flex-grow: 0;
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
 @media only screen and (min-width: 0px) {
   .mdLogo {
+    display: none;
+  }
+
+  .mdNavBar {
     display: none;
   }
 
@@ -53,11 +65,15 @@
     display: flex;
   }
 
+  .mdNavBar {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .xsLogo {
     display: none;
   }
   .xsLogoGrid {
-    justify-content: space-between;
     margin-top: 3rem;
   }
 }

@@ -18,7 +18,7 @@ export default function NavBar({ isLight, setIsLight }: Props) {
   return (
     <Container maxWidth="none">
       <GridContainer>
-        <GridItem lg="five" md="four" xs="three">
+        <GridItem xl="five" md="four" xs="three">
           <img
             className={css.mdLogo}
             src={
@@ -29,28 +29,30 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             alt="a-star-car-sales-logo"
           />
         </GridItem>
-        <GridItem className={css.xsLogoGrid} lg="two" md="four" xs="six">
-          <Link href={"/"}>
-            <a style={{ textDecoration: "none" }}>
-              <Typography>Home</Typography>
-            </a>
-          </Link>
-          <Link href={"/"}>
-            <a style={{ textDecoration: "none" }}>
-              <Typography>Cars</Typography>
-            </a>
-          </Link>
+        <GridItem className={css.xsLogoGrid} xl="two" md="four" xs="six">
+          <div className={css.mdNavBar}>
+            <Link href={"/"}>
+              <a style={{ textDecoration: "none" }}>
+                <Typography>Home</Typography>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a style={{ textDecoration: "none" }}>
+                <Typography>Cars</Typography>
+              </a>
+            </Link>
 
-          <Link href={"/"}>
-            <a style={{ textDecoration: "none" }}>
-              <Typography>FAQ/Support</Typography>
-            </a>
-          </Link>
-          <Link href={"/"}>
-            <a style={{ textDecoration: "none" }}>
-              <Typography>About</Typography>
-            </a>
-          </Link>
+            <Link href={"/"}>
+              <a style={{ textDecoration: "none" }}>
+                <Typography>FAQ/Support</Typography>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a style={{ textDecoration: "none" }}>
+                <Typography>About</Typography>
+              </a>
+            </Link>
+          </div>
           <img
             className={css.xsLogo}
             src={
@@ -63,29 +65,11 @@ export default function NavBar({ isLight, setIsLight }: Props) {
         </GridItem>
         <GridItem
           className={css.themeSwitchGrid}
-          lg="five"
+          xl="five"
           md="four"
           xs="three"
         >
           <DropdownMenu setIsLight={setIsLight} isLight={isLight} />
-          {/* <div
-            style={{ background: themeSwitchBackground }}
-            className={css.themeSwitchBackground}
-            onClick={() => {
-              setIsLight(!isLight);
-            }}
-          >
-            <img
-              className={css.themeSwitch}
-              title="theme switch"
-              src={
-                isLight
-                  ? "./images/darkModeIcon.png"
-                  : "./images/lightModeIcon.png"
-              }
-              alt="theme switch button"
-            />
-          </div> */}
         </GridItem>
       </GridContainer>
     </Container>

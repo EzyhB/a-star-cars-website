@@ -50,7 +50,7 @@ const Dropdown = styled.div`
   position: absolute;
   min-width: 170px;
   top: 70px;
-  right: 40px;
+  right: 50px;
   transform: translate(-45%);
   background-color: ${(props) => props.theme.pallette.primary};
   border-bottom: 1px solid ${(props) => props.theme.pallette.secondary};
