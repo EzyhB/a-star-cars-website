@@ -31,23 +31,23 @@ export default function NavBar({ isLight, setIsLight }: Props) {
         </GridItem>
         <GridItem className={css.xsLogoGrid} lg="two" md="four" xs="six">
           <Link href={"/"}>
-            <a>
+            <a style={{ textDecoration: "none" }}>
               <Typography>Home</Typography>
             </a>
           </Link>
           <Link href={"/"}>
-            <a>
+            <a style={{ textDecoration: "none" }}>
               <Typography>Cars</Typography>
             </a>
           </Link>
 
           <Link href={"/"}>
-            <a>
+            <a style={{ textDecoration: "none" }}>
               <Typography>FAQ/Support</Typography>
             </a>
           </Link>
           <Link href={"/"}>
-            <a>
+            <a style={{ textDecoration: "none" }}>
               <Typography>About</Typography>
             </a>
           </Link>
