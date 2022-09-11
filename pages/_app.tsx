@@ -6,7 +6,7 @@ import { useState } from "react";
 import NavBar from "../components/NavBar";
 import { Container } from "../components/styles/Container";
 
-import css from "../styles/App.module.css";
+// import css from "../styles/App.module.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLight, setIsLight] = useState(false);
@@ -14,14 +14,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
-      <Container
+
+      <NavBar isLight={isLight} setIsLight={setIsLight} />
+      {/* <Container
         maxWidth="none"
         background="background"
         className={css.bgContainer}
-      >
-        <NavBar isLight={isLight} setIsLight={setIsLight} />
-      </Container>
+      > */}
       <Component {...pageProps} />
+      {/* </Container> */}
     </ThemeProvider>
   );
 }
