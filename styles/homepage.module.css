@@ -6,6 +6,7 @@
   background-size: contain;
   display: flex;
   justify-content: center;
+  background-color: red;
 }
 
 .searchBarPadding {
@@ -20,16 +21,24 @@
   /* background-color: green; */
 }
 
-.featureGrid {
+/* .featureGrid {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-}
+} */
 
-.featureHeader {
+.featureText {
   text-align: center;
 }
 
+.featureImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .featureImage {
-  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
