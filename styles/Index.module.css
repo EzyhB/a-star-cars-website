@@ -4,4 +4,18 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBarPadding {
+  /* background-color: red; */
+  height: 60%;
+}
+
+.searchBar {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  /* background-color: green; */
 }
