@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import CarDiscplayCard from "../components/CarDisplayCard";
 import { Container } from "../components/styles/Container";
 import { GridContainer } from "../components/styles/GridContainer";
 import { GridItem } from "../components/styles/GridItem";
 import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/homepage.module.css";
+import mockDB from "../mockDB";
 
 const Home: NextPage = () => {
   return (
@@ -70,9 +72,6 @@ const Home: NextPage = () => {
           </Typography>
         </GridItem>
       </GridContainer>
-      {/* <Container maxWidth="none">
-        <Container maxWidth="md"></Container>
-      </Container> */}
 
       <Container maxWidth="xl" background="primary">
         <Container className={css.subBanner}></Container>
@@ -82,7 +81,45 @@ const Home: NextPage = () => {
         background="primary"
         className={css.carDisplayContainer}
       >
-        <Typography>Browse our latest used cars</Typography>
+        <Typography variant="h3">Browse our latest used cars</Typography>
+        <GridContainer>
+          <GridItem md="four">
+            <CarDiscplayCard
+              carName={mockDB[0].carName}
+              carImage={mockDB[0].carImage}
+              carSubName={mockDB[0].carSubname}
+              miles={mockDB[0].miles}
+              reg={mockDB[0].reg}
+              trans={mockDB[0].trans}
+              fuel={mockDB[0].fuel}
+              price={mockDB[0].price}
+            ></CarDiscplayCard>
+          </GridItem>
+          <GridItem md="four">
+            <CarDiscplayCard
+              carName={mockDB[1].carName}
+              carImage={mockDB[1].carImage}
+              carSubName={mockDB[1].carSubname}
+              miles={mockDB[1].miles}
+              reg={mockDB[1].reg}
+              trans={mockDB[1].trans}
+              fuel={mockDB[1].fuel}
+              price={mockDB[1].price}
+            ></CarDiscplayCard>
+          </GridItem>
+          <GridItem md="four">
+            <CarDiscplayCard
+              carName={mockDB[2].carName}
+              carImage={mockDB[2].carImage}
+              carSubName={mockDB[2].carSubname}
+              miles={mockDB[2].miles}
+              reg={mockDB[2].reg}
+              trans={mockDB[2].trans}
+              fuel={mockDB[2].fuel}
+              price={mockDB[2].price}
+            ></CarDiscplayCard>
+          </GridItem>
+        </GridContainer>
       </Container>
     </Container>
   );
