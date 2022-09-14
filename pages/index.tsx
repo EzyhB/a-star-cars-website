@@ -18,8 +18,8 @@ const Home: NextPage = () => {
       <Container maxWidth="md" className={css.searchBar}>
         <InputField></InputField>
       </Container>
-      <GridContainer>
-        <GridItem md="four" className={css.featureGrid}>
+      <GridContainer className={css.featureGrid}>
+        <GridItem md="four">
           <Typography className={css.featureText}>Great Value</Typography>
           <Container className={css.featureImageContainer}>
             <img
@@ -70,8 +70,19 @@ const Home: NextPage = () => {
           </Typography>
         </GridItem>
       </GridContainer>
-      <Container maxWidth="none">
+      {/* <Container maxWidth="none">
         <Container maxWidth="md"></Container>
+      </Container> */}
+
+      <Container maxWidth="xl" background="primary">
+        <Container className={css.subBanner}></Container>
+      </Container>
+      <Container
+        maxWidth="xl"
+        background="primary"
+        className={css.carDisplayContainer}
+      >
+        <Typography>Browse our latest used cars</Typography>
       </Container>
     </Container>
   );
