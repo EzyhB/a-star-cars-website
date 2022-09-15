@@ -81,7 +81,9 @@ const Home: NextPage = () => {
         background="primary"
         className={css.carDisplayContainer}
       >
-        <Typography variant="h3">Browse our latest used cars</Typography>
+        <Typography variant="h3" className={css.featureText}>
+          Browse our latest used cars
+        </Typography>
         <GridContainer>
           <GridItem md="four">
             <CarDiscplayCard

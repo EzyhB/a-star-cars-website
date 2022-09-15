@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonHollow from "../styles/ButtonHollow";
+import CarSpecs from "../styles/CarSpecs";
 import { Container } from "../styles/Container";
 import { Typography } from "../styles/Typography";
 import css from "./carDisplayCard.module.css";
@@ -30,16 +31,20 @@ export default function CarDiscplayCard({
       <div>
         <img src={carImage} alt={carName} className={css.cardImage} />
       </div>
-      <Typography variant="h6">{carName}</Typography>
-      <Typography>{carSubName}</Typography>
       <Container>
-        <Typography>{miles}</Typography>
-        <Typography>{reg}</Typography>
-        <Typography>{trans}</Typography>
-        <Typography>{fuel}</Typography>
+        <Typography variant="h6">{carName}</Typography>
+        <Typography>{carSubName}</Typography>
+        <div className={css.specBody}>
+          <CarSpecs miles={miles} />
+          <CarSpecs reg={reg} />
+          <CarSpecs trans={trans} />
+          <CarSpecs fuel={fuel} />
+        </div>
+        <Typography variant="h6">{price}</Typography>
+        <div className={css.buttonContainer}>
+          <ButtonHollow className={css.button}>View this car</ButtonHollow>
+        </div>
       </Container>
-      <Typography variant="h6">{price}</Typography>
-      <ButtonHollow>View this car</ButtonHollow>
     </div>
   );
 }
