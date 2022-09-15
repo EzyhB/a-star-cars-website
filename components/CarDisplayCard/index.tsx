@@ -40,9 +40,18 @@ export default function CarDiscplayCard({
           <CarSpecs trans={trans} />
           <CarSpecs fuel={fuel} />
         </div>
-        <Typography variant="h6">{price}</Typography>
+        <div>
+          <Typography variant="h6" className={css.carPrice}>
+            {price.toLocaleString("en-US", {
+              style: "currency",
+              currency: "GBP",
+            })}
+          </Typography>
+        </div>
         <div className={css.buttonContainer}>
-          <ButtonHollow className={css.button}>View this car</ButtonHollow>
+          <ButtonHollow className={css.button} size="xl">
+            <Typography>View this car</Typography>
+          </ButtonHollow>
         </div>
       </Container>
     </div>

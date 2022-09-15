@@ -4,6 +4,7 @@ enum ButtonSize {
   "s" = 100,
   "m" = 120,
   "l" = 150,
+  "xl" = 180,
 }
 
 interface Props {
