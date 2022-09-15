@@ -9,7 +9,6 @@
 }
 
 .searchBarPadding {
-  /* background-color: red; */
   height: 60%;
 }
 
@@ -17,7 +16,6 @@
   height: 40%;
   display: flex;
   justify-content: center;
-  /* background-color: green; */
 }
 
 .featureGrid {
@@ -52,5 +50,10 @@
 }
 
 .carDisplayContainer {
-  padding-top: 6rem;
+  padding-top: 2rem;
+}
+
+.subHeadders {
+  text-align: center;
+  margin: 5rem 0;
 }

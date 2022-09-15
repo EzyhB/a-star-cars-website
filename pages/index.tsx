@@ -8,6 +8,7 @@ import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/homepage.module.css";
 import mockDB from "../mockDB";
+import ButtonHollow from "../components/styles/ButtonHollow";
 
 const Home: NextPage = () => {
   return (
@@ -81,11 +82,11 @@ const Home: NextPage = () => {
         background="primary"
         className={css.carDisplayContainer}
       >
-        <Typography variant="h3" className={css.featureText}>
+        <Typography variant="h3" className={css.subHeadders}>
           Browse our latest used cars
         </Typography>
         <GridContainer>
-          <GridItem md="four">
+          <GridItem md="four" className={css.featureImageContainer}>
             <CarDiscplayCard
               carName={mockDB[0].carName}
               carImage={mockDB[0].carImage}
@@ -97,7 +98,7 @@ const Home: NextPage = () => {
               price={mockDB[0].price}
             ></CarDiscplayCard>
           </GridItem>
-          <GridItem md="four">
+          <GridItem md="four" className={css.featureImageContainer}>
             <CarDiscplayCard
               carName={mockDB[1].carName}
               carImage={mockDB[1].carImage}
@@ -109,7 +110,7 @@ const Home: NextPage = () => {
               price={mockDB[1].price}
             ></CarDiscplayCard>
           </GridItem>
-          <GridItem md="four">
+          <GridItem md="four" className={css.featureImageContainer}>
             <CarDiscplayCard
               carName={mockDB[2].carName}
               carImage={mockDB[2].carImage}
@@ -122,6 +123,15 @@ const Home: NextPage = () => {
             ></CarDiscplayCard>
           </GridItem>
         </GridContainer>
+
+        <Typography variant="h4" className={css.subHeadders}>
+          Discover over 250 makes
+        </Typography>
+        <div className={css.featureImageContainer}>
+          <ButtonHollow size="xl">
+            <Typography variant="h6">See all cars</Typography>
+          </ButtonHollow>
+        </div>
       </Container>
     </Container>
   );
