@@ -23,8 +23,8 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             className={css.mdLogo}
             src={
               isLight
-                ? "./images/a-star-logo-png.png"
-                : "./images/a-star-logo-png-yellow.png"
+                ? "./images/a-star-car-sales-light-logo.png"
+                : "./images/a-star-car-sales-dark-logo.png"
             }
             alt="a-star-car-sales-logo"
           />
@@ -57,8 +57,8 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             className={css.xsLogo}
             src={
               isLight
-                ? "./images/a-star-logo-png.png"
-                : "./images/a-star-logo-png-yellow.png"
+                ? "./images/a-star-car-sales-light-logo.png"
+                : "./images/a-star-car-sales-dark-logo.png"
             }
             alt="a-star-car-sales-logo"
           />
