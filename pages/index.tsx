@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <InputField></InputField>
       </Container>
       <GridContainer className={css.featureGrid}>
-        <GridItem md="four">
+        <GridItem md="four" sm="six">
           <Typography className={css.featureText}>Great Value</Typography>
           <Container className={css.featureImageContainer}>
             <img
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
             whatever your budget.
           </Typography>
         </GridItem>
-        <GridItem md="four">
+        <GridItem md="four" sm="six">
           <Typography className={css.featureText}>
             High-Quality Used Cars
           </Typography>
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             comes guaranteed.
           </Typography>
         </GridItem>
-        <GridItem md="four">
+        <GridItem md="four" sm="six">
           <Typography className={css.featureText}>
             Flexible Finance Options
           </Typography>

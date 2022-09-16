@@ -63,3 +63,27 @@
   justify-content: center;
   padding: 0 0 2rem 0;
 }
+
+@media only screen and (max-width: 900px) {
+  .bgContainer {
+    height: 55vh;
+    background-image: url("/images/a-star-car-sales-900px-hero.png");
+  }
+  .featureGrid {
+    margin-top: 2rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .bgContainer {
+    background-image: url("/images/a-star-car-sales-750px-hero.png");
+  }
+}
+@media only screen and (max-width: 600px) {
+  .bgContainer {
+    background-image: url("/images/a-star-car-sales-600px-hero.png");
+  }
+  .featureGrid {
+    margin-top: 0rem;
+  }
+}
