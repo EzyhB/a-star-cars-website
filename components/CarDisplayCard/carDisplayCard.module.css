@@ -3,6 +3,7 @@
   max-height: 590px;
   border-radius: 20px;
   background-color: whitesmoke;
+  margin: 2rem;
 }
 
 .cardImage {
@@ -31,4 +32,28 @@
 
 .carPrice {
   padding: 1.5rem 0;
+}
+@media only screen and (max-width: 500px) {
+  .cardBody {
+    max-width: 340px;
+  }
+  .cardImage {
+    max-width: 340px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .cardBody {
+    max-width: 320px;
+  }
+  .cardImage {
+    max-width: 320px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .cardBody {
+    max-width: 290px;
+  }
+  .cardImage {
+    max-width: 290px;
+  }
 }

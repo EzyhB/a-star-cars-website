@@ -8,7 +8,22 @@ const InputForm = styled.form`
   border: none;
   display: flex;
   margin: auto;
-  /* background-color: blue; */
+  @media only screen and (max-width: 900px) {
+    max-width: 650px;
+    height: 80px;
+  }
+  @media only screen and (max-width: 800px) {
+    max-width: 600px;
+    height: 70px;
+  }
+  @media only screen and (max-width: 700px) {
+    max-width: 550px;
+    height: 60px;
+  }
+  @media only screen and (max-width: 600px) {
+    max-width: 500px;
+    height: 50px;
+  }
 `;
 const SearchBarOutline = styled.div`
   flex-grow: 0.6;
@@ -17,6 +32,24 @@ const SearchBarOutline = styled.div`
   border-radius: 45px;
   border: 1px solid ${(props) => props.theme.pallette.secondary};
   background-color: ${(props) => props.theme.pallette.background};
+  @media only screen and (max-width: 900px) {
+    max-width: 550px;
+  }
+  @media only screen and (max-width: 800px) {
+    max-width: 500px;
+  }
+  @media only screen and (max-width: 700px) {
+    max-width: 450px;
+  }
+  @media only screen and (max-width: 600px) {
+    max-width: 350px;
+  }
+  @media only screen and (max-width: 500px) {
+    max-width: 300px;
+  }
+  @media only screen and (max-width: 450px) {
+    max-width: 250px;
+  }
 `;
 
 const TextSearch = styled.input`
@@ -25,7 +58,7 @@ const TextSearch = styled.input`
   background: none;
   border: none;
   padding-left: 1rem;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   color: ${(props) => props.theme.pallette.text};
 
   border-radius: 45px;
@@ -36,7 +69,7 @@ const RegSearch = styled.select`
   height: 100%;
   cursor: pointer;
   font-family: inherit;
-  font-size: 16px;
+  /* font-size: 16px; */
   transition: all 150ms ease;
   text-align: center;
 
@@ -51,7 +84,7 @@ const TypeSearch = styled.select`
   height: 100%;
   cursor: pointer;
   font-family: inherit;
-  font-size: 16px;
+  /* font-size: 16px; */
   transition: all 150ms ease;
   text-align: center;
   background: none;

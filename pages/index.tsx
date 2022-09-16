@@ -87,7 +87,7 @@ const Home: NextPage = () => {
           Browse our latest used cars
         </Typography>
         <GridContainer>
-          <GridItem md="four" className={css.featureImageContainer}>
+          <GridItem lg="four" md="six" className={css.featureImageContainer}>
             <CarDiscplayCard
               carName={mockDB[0].carName}
               carImage={mockDB[0].carImage}
@@ -99,7 +99,7 @@ const Home: NextPage = () => {
               price={mockDB[0].price}
             ></CarDiscplayCard>
           </GridItem>
-          <GridItem md="four" className={css.featureImageContainer}>
+          <GridItem lg="four" md="six" className={css.featureImageContainer}>
             <CarDiscplayCard
               carName={mockDB[1].carName}
               carImage={mockDB[1].carImage}
@@ -111,7 +111,7 @@ const Home: NextPage = () => {
               price={mockDB[1].price}
             ></CarDiscplayCard>
           </GridItem>
-          <GridItem md="four" className={css.featureImageContainer}>
+          <GridItem lg="four" md="six" className={css.featureImageContainer}>
             <CarDiscplayCard
               carName={mockDB[2].carName}
               carImage={mockDB[2].carImage}
