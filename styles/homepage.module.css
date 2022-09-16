@@ -57,3 +57,9 @@
   text-align: center;
   margin: 5rem 0;
 }
+
+.footerPadding {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 2rem 0;
+}

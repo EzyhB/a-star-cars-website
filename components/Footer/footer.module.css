@@ -1,0 +1,21 @@
+.textCenter {
+  text-align: center;
+}
+.textCenter1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.paddingDiv {
+  margin: 2rem;
+}
+
+.gridCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.textEnd {
+  display: flex;
+  text-align: center;
+}

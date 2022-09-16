@@ -3,11 +3,15 @@ import { lightTheme } from "../Theme";
 
 interface Props {
   variant?: keyof typeof lightTheme.Typography;
+  color?: keyof typeof lightTheme.pallette;
 }
 
 const Typography = styled.p<Props>`
   font-family: "Epilogue", sans-serif;
-  color: ${(props) => props.theme.pallette.text};
+  color: ${(props) =>
+    props.color
+      ? props.theme.pallette[props.color]
+      : props.theme.pallette.text};
   font-weight: ${({ variant, theme }) =>
     variant ? theme.Typography[variant].weight : theme.Typography.body1.weight};
   font-size: ${({ variant, theme }) =>

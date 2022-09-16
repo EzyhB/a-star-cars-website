@@ -9,6 +9,7 @@ import { Typography } from "../components/styles/Typography";
 import css from "../styles/homepage.module.css";
 import mockDB from "../mockDB";
 import ButtonHollow from "../components/styles/ButtonHollow";
+import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -127,12 +128,13 @@ const Home: NextPage = () => {
         <Typography variant="h4" className={css.subHeadders}>
           Discover over 250 makes
         </Typography>
-        <div className={css.featureImageContainer}>
+        <div className={css.footerPadding}>
           <ButtonHollow size="xl">
             <Typography variant="h6">See all cars</Typography>
           </ButtonHollow>
         </div>
       </Container>
+      <Footer></Footer>
     </Container>
   );
 };
