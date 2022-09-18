@@ -9,47 +9,29 @@ const InputForm = styled.form`
   display: flex;
   margin: auto;
   @media only screen and (max-width: 900px) {
-    max-width: 650px;
     height: 80px;
   }
   @media only screen and (max-width: 800px) {
-    max-width: 600px;
     height: 70px;
   }
   @media only screen and (max-width: 700px) {
-    max-width: 550px;
     height: 60px;
   }
   @media only screen and (max-width: 600px) {
-    max-width: 500px;
+    height: 50px;
+  }
+  @media only screen and (max-width: 500px) {
     height: 50px;
   }
 `;
 const SearchBarOutline = styled.div`
   flex-grow: 0.6;
-  max-width: 650px;
+
   height: 100%;
   border-radius: 45px;
   border: 1px solid ${(props) => props.theme.pallette.secondary};
-  background-color: ${(props) => props.theme.pallette.background};
-  @media only screen and (max-width: 900px) {
-    max-width: 550px;
-  }
-  @media only screen and (max-width: 800px) {
-    max-width: 500px;
-  }
-  @media only screen and (max-width: 700px) {
-    max-width: 450px;
-  }
-  @media only screen and (max-width: 600px) {
-    max-width: 350px;
-  }
-  @media only screen and (max-width: 500px) {
-    max-width: 300px;
-  }
-  @media only screen and (max-width: 450px) {
-    max-width: 250px;
-  }
+  /* background-color: ${(props) => props.theme.pallette.background}; */
+  background-color: rgba(255, 255, 255, 0.74);
 `;
 
 const TextSearch = styled.input`
@@ -58,7 +40,7 @@ const TextSearch = styled.input`
   background: none;
   border: none;
   padding-left: 1rem;
-  /* font-size: 1.2rem; */
+
   color: ${(props) => props.theme.pallette.text};
 
   border-radius: 45px;
@@ -69,7 +51,7 @@ const RegSearch = styled.select`
   height: 100%;
   cursor: pointer;
   font-family: inherit;
-  /* font-size: 16px; */
+
   transition: all 150ms ease;
   text-align: center;
 
@@ -84,7 +66,7 @@ const TypeSearch = styled.select`
   height: 100%;
   cursor: pointer;
   font-family: inherit;
-  /* font-size: 16px; */
+
   transition: all 150ms ease;
   text-align: center;
   background: none;
@@ -93,9 +75,13 @@ const TypeSearch = styled.select`
   border-radius: 45px;
 `;
 
+const searchButtonDiv = styled.div`
+  flex-grow: 0.4;
+`;
 const InputSearchButton = styled.button`
   flex-grow: 0.4;
   height: 100%;
+
   background: url(${(props) =>
     props.theme.pallette.primary == "rgba(5, 153, 47, 0.3)"
       ? "/images/search-icon-light.png"
