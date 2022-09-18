@@ -2,8 +2,8 @@ export type ThemeType = typeof lightTheme;
 
 export const lightTheme = {
   pallette: {
-    primary: "rgba(5, 153, 47, 0.3)",
-    secondary: "rgba(5, 153, 47, 1)",
+    primary: "#A7DBAB",
+    secondary: "rgb(5, 153, 47)",
     background: "rgba(236, 246, 223, 1)",
     text: "#28293E",
     textLight: "rgba(234, 234, 234, 1)",
@@ -63,8 +63,8 @@ export const lightTheme = {
 };
 export const darkTheme = {
   pallette: {
-    primary: "rgba(40, 41, 62, 0.45)",
-    secondary: "rgb(210, 193, 125)",
+    primary: "#798191",
+    secondary: "#d2c17d",
     background: "#bac8d4",
     text: "#28293E",
     textLight: "rgba(234, 234, 234, 1)",
