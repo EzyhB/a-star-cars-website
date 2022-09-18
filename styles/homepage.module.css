@@ -74,9 +74,20 @@
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .bgContainer {
+    height: 50vh;
+  }
+}
 @media only screen and (max-width: 750px) {
   .bgContainer {
+    height: 50vh;
     background-image: url("/images/a-star-car-sales-750px-hero.png");
+  }
+}
+@media only screen and (max-width: 650px) {
+  .bgContainer {
+    height: 45vh;
   }
 }
 @media only screen and (max-width: 600px) {
