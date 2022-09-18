@@ -5,7 +5,8 @@
 }
 .xsLogo {
   margin: 1rem 0 0 0;
-  max-width: 25%;
+  max-width: 6rem;
+  min-width: 6rem;
   cursor: pointer;
 }
 
