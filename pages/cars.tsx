@@ -14,8 +14,10 @@ export default function cars() {
   return (
     <Container maxWidth="xl">
       <div>
-        <Typography>We make buying cars easy &#38; simple</Typography>
-        <Typography>
+        <Typography variant="h4" className={css.carsHeader}>
+          We make buying cars easy &#38; simple
+        </Typography>
+        <Typography className={css.carsSubHeader}>
           At A-Star, you can get your next used car from the comfort of your
           sofa. We own all our cars, so we can guarantee the quality.
         </Typography>

@@ -3,5 +3,11 @@
   justify-content: center;
 }
 
-.primaryBG {
+.carsHeader {
+  text-align: center;
+  padding: 2rem;
+}
+.carsSubHeader {
+  text-align: center;
+  padding: 0 0 4rem 0;
 }
