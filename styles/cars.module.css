@@ -5,9 +5,13 @@
 
 .carsHeader {
   text-align: center;
-  padding: 2rem;
+  padding: 0 0 2rem 0;
 }
 .carsSubHeader {
   text-align: center;
   padding: 0 0 4rem 0;
+}
+
+.cardTitles {
+  text-align: center;
 }

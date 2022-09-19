@@ -23,6 +23,9 @@ export default function cars() {
         </Typography>
         <InputField />
       </div>
+      <Typography variant="h5" className={css.cardTitle}>
+        Best Match
+      </Typography>
       <GridContainer>
         <GridItem lg="four" md="six" className={css.featureCarImageContainer}>
           <CarDiscplayCard
@@ -62,6 +65,9 @@ export default function cars() {
         </GridItem>
       </GridContainer>
       <Container padding="no" maxWidth="xl" background="primary">
+        <Typography variant="h5" className={css.cardTitle}>
+          Our Selection
+        </Typography>
         <GridContainer>
           {mockDB.map((el, index) => (
             <GridItem
