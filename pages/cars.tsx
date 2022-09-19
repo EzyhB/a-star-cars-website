@@ -22,7 +22,7 @@ export default function cars() {
           sofa. We own all our cars, so we can guarantee the quality.
         </Typography>
         <InputField />
-        <Typography variant="h5" className={css.cardTitle}>
+        <Typography variant="h5" className={css.cardTitles}>
           Best Match
         </Typography>
       </div>
@@ -65,7 +65,7 @@ export default function cars() {
           ></CarDiscplayCard>
         </GridItem>
       </GridContainer>
-      <Typography variant="h5" className={css.cardTitle}>
+      <Typography variant="h5" className={css.cardTitles}>
         Our Selection
       </Typography>
       <Container padding="no" maxWidth="xl" background="primary">
