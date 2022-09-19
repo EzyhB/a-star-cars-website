@@ -10,6 +10,7 @@ type Color = RGB | RGBA | HEX;
 interface Props {
   maxWidth?: keyof typeof lightTheme.breakPoints;
   background?: keyof typeof lightTheme.pallette;
+  padding?: string;
 }
 
 const Container = styled.div<Props>`
@@ -23,8 +24,10 @@ const Container = styled.div<Props>`
   box-sizing: border-box;
   margin-right: auto;
   display: block;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: ${(props) =>
+    props.padding ? (props.padding == "no" ? "0rem" : "1rem") : "1rem"};
+  padding-right: ${(props) =>
+    props.padding ? (props.padding == "no" ? "0rem" : "1rem") : "1rem"};
 `;
 
 export { Container };
