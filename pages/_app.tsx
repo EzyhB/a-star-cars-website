@@ -4,8 +4,6 @@ import GlobalStyles from "../components/styles/Theme/GlobalStyle.css";
 import { lightTheme, darkTheme } from "../components/styles/Theme";
 import { useState } from "react";
 import NavBar from "../components/NavBar";
-import { Container } from "../components/styles/Container";
-import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLight, setIsLight] = useState(false);
@@ -17,7 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NavBar isLight={isLight} setIsLight={setIsLight} />
 
       <Component {...pageProps} />
-      <Footer />
     </ThemeProvider>
   );
 }
