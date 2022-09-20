@@ -1,22 +1,22 @@
-.faqGridItem {
+.aboutGridItem {
   display: flex;
   justify-content: center;
 }
 
-.faqContainer {
+.aboutContainer {
   height: 100%;
   width: 80%;
 }
 
-.faqImage {
+.aboutImage {
   max-width: 80%;
   height: fit-content;
 }
 
-.faqGridContainer {
+.aboutGridContainer {
   margin: 4rem;
 }
 
-.faqBody {
+.aboutBody {
   padding: 2rem 0;
 }

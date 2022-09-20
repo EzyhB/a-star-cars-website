@@ -47,7 +47,7 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <Typography>FAQ/Support</Typography>
               </a>
             </Link>
-            <Link href={"/"}>
+            <Link href={"/about"}>
               <a style={{ textDecoration: "none" }}>
                 <Typography>About</Typography>
               </a>
