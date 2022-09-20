@@ -1,0 +1,18 @@
+.faqGridItem {
+  display: flex;
+  justify-content: center;
+}
+
+.faqContainer {
+  height: 100%;
+  width: 80%;
+}
+
+.faqImage {
+  max-width: 80%;
+  height: fit-content;
+}
+
+.faqGridContainer {
+  margin: 4rem;
+}
