@@ -92,7 +92,6 @@ export default function cars() {
           ))}
         </GridContainer>
       </Container>
-      <Footer />
     </Container>
   );
 }

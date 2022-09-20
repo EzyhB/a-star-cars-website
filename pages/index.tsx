@@ -134,7 +134,6 @@ const Home: NextPage = () => {
           </ButtonHollow>
         </div>
       </Container>
-      <Footer></Footer>
     </Container>
   );
 };
