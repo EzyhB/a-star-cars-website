@@ -8,7 +8,7 @@ import css from "../styles/faq.module.css";
 
 export default function Faq() {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" background="primary" className={css.faqBody}>
       <Container maxWidth="md" className={css.faqGridContainer}>
         <GridContainer>
           <GridItem md="six" className={css.faqGridItem}>
