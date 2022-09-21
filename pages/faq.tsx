@@ -1,7 +1,13 @@
 import React from "react";
 import { Container } from "../components/styles/Container";
+import { GridContainer } from "../components/styles/GridContainer";
+import { GridItem } from "../components/styles/GridItem";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/faq.module.css";
+
+import faqDB from "../faqDB";
+import FAQcard from "../components/FAQcard";
+import Footer from "../components/Footer";
 
 export default function faq() {
   return (
@@ -22,6 +28,16 @@ export default function faq() {
           WhatsApp us on 07984 395 125 or call 020 3901 3488.
         </Typography>
       </Container>
+      <Container maxWidth="xl">
+        <GridContainer>
+          {faqDB.map((el, index) => (
+            <GridItem lg="four" md="six" key={index}>
+              <FAQcard question={el.question} answer={el.answer}></FAQcard>
+            </GridItem>
+          ))}
+        </GridContainer>
+      </Container>
+      <Footer />
     </Container>
   );
 }

@@ -1,0 +1,23 @@
+.cardBody {
+  max-width: 375px;
+  height: 240px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.cardText {
+  text-align: center;
+}
+
+.cardAnswer {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+@media only screen and (max-width: 1250px) {
+  .cardBody {
+    max-width: 340px;
+  }
+}
