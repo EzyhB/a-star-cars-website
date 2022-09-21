@@ -21,6 +21,7 @@ interface Props {
   md?: keyof typeof gridSize;
   lg?: keyof typeof gridSize;
   xl?: keyof typeof gridSize;
+  center?: string;
 }
 
 const GridItem = styled.div<Props>`
@@ -28,6 +29,8 @@ const GridItem = styled.div<Props>`
   flex-grow: 0;
   flex-basis: 100%;
   max-width: 100%;
+  display: ${(Props) => (Props.center ? "flex" : "block")};
+  justify-content: center;
 
   @media (min-width: ${({ xs, theme }) =>
       xs ? theme.breakPoints.xs : theme.breakPoints.none}) {

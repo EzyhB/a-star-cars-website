@@ -31,7 +31,7 @@ export default function faq() {
       <Container maxWidth="xl">
         <GridContainer>
           {faqDB.map((el, index) => (
-            <GridItem lg="four" md="six" key={index}>
+            <GridItem lg="four" md="six" key={index} center="yes">
               <FAQcard question={el.question} answer={el.answer}></FAQcard>
             </GridItem>
           ))}
