@@ -4,10 +4,12 @@ import { lightTheme } from "../Theme";
 interface Props {
   variant?: keyof typeof lightTheme.Typography;
   color?: keyof typeof lightTheme.pallette;
+  center?: string;
 }
 
 const Typography = styled.p<Props>`
   font-family: "Epilogue", sans-serif;
+  text-align: ${(Props) => (Props.center ? "center" : "start")};
   color: ${(props) =>
     props.color
       ? props.theme.pallette[props.color]
