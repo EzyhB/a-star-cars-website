@@ -10,10 +10,10 @@ interface Props {
 export default function FAQcard({ question, answer }: Props) {
   return (
     <div className={css.cardBody}>
-      <Typography variant="h5" className={css.cardText}>
+      <Typography variant="h5" className={css.cardText} center="yes">
         {question}
       </Typography>
-      <Typography className={css.cardAnswer}>
+      <Typography className={css.cardAnswer} center="yes">
         {answer.slice(0, 40)}...
       </Typography>
     </div>

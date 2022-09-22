@@ -21,3 +21,8 @@
     max-width: 340px;
   }
 }
+
+.cardBody:hover {
+  cursor: pointer;
+  scale: 1.03;
+}
