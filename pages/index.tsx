@@ -24,7 +24,9 @@ const Home: NextPage = () => {
       </Container>
       <GridContainer className={css.featureGrid}>
         <GridItem md="four" sm="six">
-          <Typography className={css.featureText}>Great Value</Typography>
+          <Typography className={css.featureText} center="yes">
+            Great Value
+          </Typography>
           <Container className={css.featureImageContainer}>
             <img
               src="/images/a-star-car-sales-great-value-icon.png"
@@ -34,13 +36,13 @@ const Home: NextPage = () => {
             />
           </Container>
 
-          <Typography className={css.featureText}>
+          <Typography className={css.featureText} center="yes">
             Browse our wide range of cars from the comfort of your sofa,
             whatever your budget.
           </Typography>
         </GridItem>
         <GridItem md="four" sm="six">
-          <Typography className={css.featureText}>
+          <Typography className={css.featureText} center="yes">
             High-Quality Used Cars
           </Typography>
           <Container className={css.featureImageContainer}>
@@ -51,13 +53,13 @@ const Home: NextPage = () => {
               className={css.featureImage}
             />
           </Container>
-          <Typography className={css.featureText}>
+          <Typography className={css.featureText} center="yes">
             We own our cars and each one is fully reconditioned, so quality
             comes guaranteed.
           </Typography>
         </GridItem>
         <GridItem md="four" sm="six">
-          <Typography className={css.featureText}>
+          <Typography className={css.featureText} center="yes">
             Flexible Finance Options
           </Typography>
           <Container className={css.featureImageContainer}>
@@ -68,7 +70,7 @@ const Home: NextPage = () => {
               className={css.featureImage}
             />
           </Container>
-          <Typography className={css.featureText}>
+          <Typography className={css.featureText} center="yes">
             Quick, easy and entirely online, get instant approvals for monthly
             finance payments.
           </Typography>
@@ -83,11 +85,16 @@ const Home: NextPage = () => {
         background="primary"
         className={css.carDisplayContainer}
       >
-        <Typography variant="h3" className={css.subHeadders}>
+        <Typography variant="h3" className={css.subHeadders} center="yes">
           Browse our latest used cars
         </Typography>
         <GridContainer>
-          <GridItem lg="four" md="six" className={css.featureImageContainer}>
+          <GridItem
+            lg="four"
+            md="six"
+            className={css.featureImageContainer}
+            center="yes"
+          >
             <CarDiscplayCard
               carName={mockDB[0].carName}
               carImage={mockDB[0].carImage}
@@ -99,7 +106,12 @@ const Home: NextPage = () => {
               price={mockDB[0].price}
             ></CarDiscplayCard>
           </GridItem>
-          <GridItem lg="four" md="six" className={css.featureImageContainer}>
+          <GridItem
+            lg="four"
+            md="six"
+            className={css.featureImageContainer}
+            center="yes"
+          >
             <CarDiscplayCard
               carName={mockDB[1].carName}
               carImage={mockDB[1].carImage}
@@ -111,7 +123,12 @@ const Home: NextPage = () => {
               price={mockDB[1].price}
             ></CarDiscplayCard>
           </GridItem>
-          <GridItem lg="four" md="six" className={css.featureImageContainer}>
+          <GridItem
+            lg="four"
+            md="six"
+            className={css.featureImageContainer}
+            center="yes"
+          >
             <CarDiscplayCard
               carName={mockDB[2].carName}
               carImage={mockDB[2].carImage}
@@ -125,12 +142,14 @@ const Home: NextPage = () => {
           </GridItem>
         </GridContainer>
 
-        <Typography variant="h4" className={css.subHeadders}>
+        <Typography variant="h4" className={css.subHeadders} center="yes">
           Discover over 250 makes
         </Typography>
         <div className={css.footerPadding}>
           <ButtonHollow size="xl">
-            <Typography variant="h6">See all cars</Typography>
+            <Typography variant="h6" center="yes">
+              See all cars
+            </Typography>
           </ButtonHollow>
         </div>
       </Container>

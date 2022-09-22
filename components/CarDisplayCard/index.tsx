@@ -50,7 +50,7 @@ export default function CarDiscplayCard({
         </div>
         <div className={css.buttonContainer}>
           <ButtonHollow className={css.button} size="xl">
-            <Typography>View this car</Typography>
+            <Typography center="yes">View this car</Typography>
           </ButtonHollow>
         </div>
       </Container>

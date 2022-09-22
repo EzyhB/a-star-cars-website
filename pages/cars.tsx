@@ -14,21 +14,26 @@ export default function cars() {
   return (
     <Container maxWidth="xl">
       <div>
-        <Typography variant="h4" className={css.carsHeader}>
+        <Typography variant="h4" className={css.carsHeader} center="yes">
           We make buying cars easy &#38; simple
         </Typography>
-        <Typography className={css.carsSubHeader}>
+        <Typography className={css.carsSubHeader} center="yes">
           At A-Star, you can get your next used car from the comfort of your
           sofa. We own all our cars, so we can guarantee the quality.
         </Typography>
         <InputField />
       </div>
-      <Typography variant="h5" className={css.cardTitles}>
+      <Typography variant="h5" className={css.cardTitles} center="yes">
         Best Match
       </Typography>
 
       <GridContainer>
-        <GridItem lg="four" md="six" className={css.featureCarImageContainer}>
+        <GridItem
+          lg="four"
+          md="six"
+          className={css.featureCarImageContainer}
+          center="yes"
+        >
           <CarDiscplayCard
             carName={mockDB[0].carName}
             carImage={mockDB[0].carImage}
@@ -40,7 +45,12 @@ export default function cars() {
             price={mockDB[0].price}
           ></CarDiscplayCard>
         </GridItem>
-        <GridItem lg="four" md="six" className={css.featureCarImageContainer}>
+        <GridItem
+          lg="four"
+          md="six"
+          className={css.featureCarImageContainer}
+          center="yes"
+        >
           <CarDiscplayCard
             carName={mockDB[1].carName}
             carImage={mockDB[1].carImage}
@@ -52,7 +62,12 @@ export default function cars() {
             price={mockDB[1].price}
           ></CarDiscplayCard>
         </GridItem>
-        <GridItem lg="four" md="six" className={css.featureCarImageContainer}>
+        <GridItem
+          lg="four"
+          md="six"
+          className={css.featureCarImageContainer}
+          center="yes"
+        >
           <CarDiscplayCard
             carName={mockDB[2].carName}
             carImage={mockDB[2].carImage}
@@ -67,7 +82,7 @@ export default function cars() {
       </GridContainer>
 
       <Container padding="no" maxWidth="xl" background="primary">
-        <Typography variant="h5" className={css.cardTitles}>
+        <Typography variant="h5" className={css.cardTitles} center="yes">
           Our Selection
         </Typography>
         <GridContainer>
@@ -77,6 +92,7 @@ export default function cars() {
               md="six"
               className={css.featureCarImageContainer}
               key={index}
+              center="yes"
             >
               <CarDiscplayCard
                 carName={el.carName}

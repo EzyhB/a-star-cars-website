@@ -9,22 +9,22 @@ export default function Footer() {
   return (
     <Container maxWidth="xl">
       <div className={css.paddingDiv}>
-        <Typography variant="h6" className={css.textCenter1}>
+        <Typography variant="h6" className={css.textCenter1} center="yes">
           If you need any help, we’re available from 8am-8pm, 7 days a week.
         </Typography>
-        <Typography variant="h5" className={css.textCenter}>
+        <Typography variant="h5" className={css.textCenter} center="yes">
           299 Highgate Rd, Sparkbrook, Birmingham B12 8DN
         </Typography>
       </div>
       <Container maxWidth="sm">
         <GridContainer>
-          <GridItem xs="four" className={css.gridCenter}>
+          <GridItem xs="four" className={css.gridCenter} center="yes">
             <img src="/images/a-star-car-sales-instagram-icon.png" />
           </GridItem>
-          <GridItem xs="four" className={css.gridCenter}>
+          <GridItem xs="four" className={css.gridCenter} center="yes">
             <img src="/images/a-star-car-sales-facebook-icon.png" />
           </GridItem>
-          <GridItem xs="four" className={css.gridCenter}>
+          <GridItem xs="four" className={css.gridCenter} center="yes">
             <img src="/images/a-star-car-sales-whatsapp-icon.png" />
           </GridItem>
         </GridContainer>
