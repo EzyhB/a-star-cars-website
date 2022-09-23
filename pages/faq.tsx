@@ -32,7 +32,11 @@ export default function faq() {
         <GridContainer>
           {faqDB.map((el, index) => (
             <GridItem lg="four" md="six" key={index} center="yes">
-              <FAQcard question={el.question} answer={el.answer}></FAQcard>
+              <FAQcard
+                question={el.question}
+                answer={el.answer}
+                id={el.id}
+              ></FAQcard>
             </GridItem>
           ))}
         </GridContainer>
