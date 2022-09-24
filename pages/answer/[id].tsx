@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Footer from "../../components/Footer";
 import { Container } from "../../components/styles/Container";
 import { Typography } from "../../components/styles/Typography";
 
@@ -38,9 +39,9 @@ export default function FAQAnswer() {
   }, []);
 
   return (
-    <Container>
-      <Container>
-        <Typography variant="h5">{faqDB[id].question}</Typography>
+    <Container maxWidth="md">
+      <Container className={css.topContainerSpacing} background="primary">
+        <Typography variant="h4">{faqDB[id].question}</Typography>
       </Container>
       <Container>
         {answer?.map((el, index) => (
@@ -49,6 +50,8 @@ export default function FAQAnswer() {
           </Typography>
         ))}
       </Container>
+      <Container background="primary" className={css.footerPadding}></Container>
+      <Footer />
     </Container>
   );
 }

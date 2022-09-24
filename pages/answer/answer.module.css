@@ -1,3 +1,11 @@
 .textSpacing {
   margin: 1.5rem 0;
 }
+
+.topContainerSpacing {
+  margin: 5rem 0 1rem 0;
+}
+
+.footerPadding {
+  padding: 2rem;
+}
