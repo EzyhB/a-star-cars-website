@@ -5,6 +5,8 @@ import { Typography } from "../../components/styles/Typography";
 
 import faqDB from "../../faqDB";
 
+import css from "./answer.module.css";
+
 // export const getStaticPaths = () => {
 //   const paths = faqDB.map((el) => {
 //     return {
@@ -18,8 +20,10 @@ import faqDB from "../../faqDB";
 //   };
 // };
 
+type AnswerState = string[];
+
 export default function FAQAnswer() {
-  const [answer, setAnswer] = useState({});
+  const [answer, setAnswer] = useState<AnswerState>();
   const [id, setId] = useState(0);
   const router = useRouter();
 
@@ -27,15 +31,23 @@ export default function FAQAnswer() {
     const query = router.query;
     // console.log(typeof query.id);
     setId(Number(query.id));
+    const splitAns = faqDB[Number(query.id)].answer.split("*");
+    console.log(splitAns);
+
+    setAnswer(splitAns);
   }, []);
 
   return (
     <Container>
       <Container>
-        <Typography>{faqDB[id].question}</Typography>
+        <Typography variant="h5">{faqDB[id].question}</Typography>
       </Container>
       <Container>
-        <Typography>{faqDB[id].answer}</Typography>
+        {answer?.map((el, index) => (
+          <Typography key={index} className={css.textSpacing}>
+            {el}
+          </Typography>
+        ))}
       </Container>
     </Container>
   );
