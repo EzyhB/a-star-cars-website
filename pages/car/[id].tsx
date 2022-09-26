@@ -58,19 +58,47 @@ export default function Car() {
         </GridContainer>
       </Container>
       <Container>
-        <Typography>How buying an A-star car works</Typography>
+        <Typography variant="h5" center="yes">
+          How buying an A-star car works
+        </Typography>
         <GridContainer>
           <GridItem lg="three" md="six">
             1
+            <Typography variant="h6" center="yes">
+              Find your perfect car
+            </Typography>
+            <Typography center="yes">
+              Browse our wide range of high-quality and great value used cars
+            </Typography>
           </GridItem>
           <GridItem lg="three" md="six">
             2
+            <Typography variant="h6" center="yes">
+              Choose how to pay
+            </Typography>
+            <Typography center="yes">
+              You can buy outright or apply for car finance entirely online.
+            </Typography>
           </GridItem>
           <GridItem lg="three" md="six">
             3
+            <Typography variant="h6" center="yes">
+              Delivery or collection
+            </Typography>
+            <Typography center="yes">
+              Home delivery or collection in as little as 72 hours, any day of
+              the week.
+            </Typography>
           </GridItem>
           <GridItem lg="three" md="six">
             4
+            <Typography variant="h6" center="yes">
+              7 days to decide
+            </Typography>
+            <Typography center="yes">
+              Enjoy your car for up to 7 days and get a full refund if you
+              change your mind.
+            </Typography>
           </GridItem>
         </GridContainer>
       </Container>
