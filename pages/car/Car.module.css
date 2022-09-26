@@ -1,16 +1,12 @@
 .carPaymentInfoGrid {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .carPaymentInfoCard {
-  /* max-width: 320px; */
-
-  /* background-color: rebeccapurple; */
 }
 
 .shortSpecs {
-  /* max-width: 300px; */
   margin: 0.8rem 0;
 }
 
