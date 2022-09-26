@@ -1,9 +1,10 @@
 .carPaymentInfoGrid {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .carPaymentInfoCard {
+}
+.topMargin {
+  margin: 5rem 0 0 0;
 }
 
 .shortSpecs {
@@ -20,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0 0 1.5rem 0;
+  box-shadow: 0px 1px rgba(46, 45, 45, 0.277);
 }
 
 .actionButton {
@@ -27,4 +29,24 @@
   display: flex;
   justify-content: center;
   padding: 1rem 0 0 0;
+}
+
+.buyInstructionsContainer {
+  margin: 4rem 0;
+  padding: 1rem;
+}
+
+.specsGrid1 {
+  padding: 2rem 2rem 2rem 0;
+}
+.specsGrid2 {
+  padding: 2rem 0rem 2rem 2rem;
+}
+@media only screen and (max-width: 900px) {
+  .specsGrid1 {
+    padding: 2rem 0rem 2rem 0;
+  }
+  .specsGrid2 {
+    padding: 2rem 0rem 2rem 0rem;
+  }
 }

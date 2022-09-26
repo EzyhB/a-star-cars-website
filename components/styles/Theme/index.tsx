@@ -53,6 +53,12 @@ export const lightTheme = {
       lineHeight: 1.6,
       letterSpacing: "0.00938em",
     },
+    body2: {
+      size: "1.1rem",
+      weight: 4250,
+      lineHeight: 1.5,
+      letterSpacing: "0.00938em",
+    },
     body1: {
       size: "1rem",
       weight: 400,
@@ -112,6 +118,12 @@ export const darkTheme = {
       size: "1.25rem",
       weight: 500,
       lineHeight: 1.6,
+      letterSpacing: "0.00938em",
+    },
+    body2: {
+      size: "1.1rem",
+      weight: 450,
+      lineHeight: 1.5,
       letterSpacing: "0.00938em",
     },
     body1: {

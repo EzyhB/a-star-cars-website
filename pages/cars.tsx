@@ -7,7 +7,7 @@ import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/cars.module.css";
 
-import mockDB from "../mockDB";
+import mockDB from "../tempData/mockDB";
 import Footer from "../components/Footer";
 
 export default function cars() {

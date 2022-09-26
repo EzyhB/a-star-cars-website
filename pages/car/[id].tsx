@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/Footer";
 import ButtonHollow from "../../components/styles/ButtonHollow";
 import CarSpecs from "../../components/styles/CarSpecs";
 import { Container } from "../../components/styles/Container";
@@ -14,7 +15,7 @@ export default function Car() {
   const car = carDB[0];
   return (
     <Container>
-      <Container>
+      <Container padding="no" className={css.topMargin}>
         <GridContainer>
           <GridItem lg="eight" md="seven">
             hello
@@ -57,7 +58,7 @@ export default function Car() {
           </GridItem>
         </GridContainer>
       </Container>
-      <Container>
+      <Container background="primary" className={css.buyInstructionsContainer}>
         <Typography variant="h5" center="yes">
           How buying an A-star car works
         </Typography>
@@ -102,6 +103,74 @@ export default function Car() {
           </GridItem>
         </GridContainer>
       </Container>
+      <Container padding="no">
+        <GridContainer>
+          <GridItem md="six" className={css.specsGrid1}>
+            <div className={css.carPrice}>
+              <Typography>Miles</Typography>
+              <Typography variant="body2">{car.miles}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Registration</Typography>
+              <Typography variant="body2">{car.reg}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Transmission</Typography>
+              <Typography variant="body2">{car.trans}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Seats</Typography>
+              <Typography variant="body2">{car.seats}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Fuel</Typography>
+              <Typography variant="body2">{car.fuel}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Engine</Typography>
+              <Typography variant="body2">{car.engine}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Body Type</Typography>
+              <Typography variant="body2">{car.bodyType}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Exterior Colour</Typography>
+              <Typography variant="body2">{car.exteriorColour}</Typography>
+            </div>
+          </GridItem>
+          <GridItem md="six" className={css.specsGrid2}>
+            <div className={css.carPrice}>
+              <Typography>Drive Type</Typography>
+              <Typography variant="body2">{car.driveType}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Registration Number</Typography>
+              <Typography variant="body2">{car.regNum}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Previous Owners</Typography>
+              <Typography variant="body2">{car.previousOwners}</Typography>
+            </div>
+
+            <div className={css.carPrice}>
+              <Typography>Top Speed</Typography>
+              <Typography variant="body2">{car.topSpeed}</Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Acceleration (0-60)MPH</Typography>
+              <Typography variant="body2">
+                {car.acceleration} seconds
+              </Typography>
+            </div>
+            <div className={css.carPrice}>
+              <Typography>Power</Typography>
+              <Typography variant="body2">{car.power} bhp</Typography>
+            </div>
+          </GridItem>
+        </GridContainer>
+      </Container>
+      <Footer />
     </Container>
   );
 }
