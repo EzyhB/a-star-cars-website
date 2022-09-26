@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import { Container } from "../../components/styles/Container";
 import { Typography } from "../../components/styles/Typography";
 
-import faqDB from "../../faqDB";
+import faqDB from "../../tempData/faqDB";
 
 import css from "./answer.module.css";
 
