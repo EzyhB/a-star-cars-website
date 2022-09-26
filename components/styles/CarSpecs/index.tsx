@@ -8,7 +8,7 @@ const SpecBody = styled.div`
   background-color: ${(props) => props.theme.pallette.primary};
   border-radius: 5px;
   padding: 2px 6px;
-  margin: 5px;
+  margin: 5px 5px 5px 0;
 `;
 
 interface Props {

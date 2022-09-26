@@ -18,6 +18,7 @@ const ButtonHollow = styled.button<Props>`
   border: 2px solid ${(props) => props.theme.pallette.secondary};
   border-radius: 0.6rem;
   background: none;
+  display: block;
 
   &:hover {
     background: ${(props) => props.theme.pallette.secondary};

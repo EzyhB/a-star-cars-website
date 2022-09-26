@@ -7,9 +7,10 @@ import { GridItem } from "../components/styles/GridItem";
 import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/homepage.module.css";
-import mockDB from "../mockDB";
+import mockDB from "../tempData/mockDB";
 import ButtonHollow from "../components/styles/ButtonHollow";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -147,9 +148,11 @@ const Home: NextPage = () => {
         </Typography>
         <div className={css.footerPadding}>
           <ButtonHollow size="xl">
-            <Typography variant="h6" center="yes">
-              See all cars
-            </Typography>
+            <Link href={"/car/1"}>
+              <Typography variant="h6" center="yes">
+                See all cars
+              </Typography>
+            </Link>
           </ButtonHollow>
         </div>
       </Container>
