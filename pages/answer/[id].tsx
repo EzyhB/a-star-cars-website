@@ -30,7 +30,7 @@ export default function FAQAnswer() {
 
   useEffect(() => {
     const query = router.query;
-    // console.log(typeof query.id);
+
     setId(Number(query.id));
     const splitAns = faqDB[Number(query.id)].answer.split("*");
     console.log(splitAns);

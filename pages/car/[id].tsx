@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "../../components/Carousel";
 import Footer from "../../components/Footer";
 import ButtonHollow from "../../components/styles/ButtonHollow";
 import CarSpecs from "../../components/styles/CarSpecs";
@@ -8,6 +9,7 @@ import { GridItem } from "../../components/styles/GridItem";
 import { Typography } from "../../components/styles/Typography";
 
 import carDB from "../../tempData/carDB";
+import { carImageDB } from "../../tempData/carDB";
 
 import css from "./Car.module.css";
 
@@ -18,7 +20,7 @@ export default function Car() {
       <Container padding="no" className={css.topMargin}>
         <GridContainer>
           <GridItem lg="eight" md="seven">
-            hello
+            <Carousel images={carImageDB[0]} />
           </GridItem>
           <GridItem lg="four" md="five" className={css.carPaymentInfoGrid}>
             <div className={css.carPaymentInfoCard}>

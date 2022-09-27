@@ -1,0 +1,30 @@
+.carouselNavDiv {
+  display: flex;
+}
+.carouselNavDivXS {
+  display: flex;
+}
+.carouselNavGridItem {
+  padding: 0.3rem;
+}
+
+.carouselNavImage {
+  max-width: 95%;
+  border-radius: 20px;
+}
+
+.carouselNavImage:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .carouselNavDiv {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .carouselNavDivXS {
+    display: none;
+  }
+}

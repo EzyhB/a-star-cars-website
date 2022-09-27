@@ -52,4 +52,6 @@ const carImageDB = [
   },
 ];
 
+export { carImageDB };
+
 export default carDB;
