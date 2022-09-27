@@ -49,8 +49,12 @@ export default function Carousel({ images }: Props) {
 
   return (
     <Container padding="no">
-      <Container padding="no">
-        <img src={mainImage} alt="A-Star Car Sales car image" />
+      <Container padding="yes">
+        <img
+          src={mainImage}
+          alt="A-Star Car Sales car image"
+          className={css.carouselMainImg}
+        />
       </Container>
       <div className={css.carouselNavDiv}>
         <button
@@ -61,53 +65,55 @@ export default function Carousel({ images }: Props) {
         >
           <BsArrowLeftShort size={"2em"} className={css.navButtonIcon} />
         </button>
-        <GridContainer>
-          <GridItem
-            sm="four"
-            xs="six"
-            className={css.carouselNavGridItem}
-            center="yes"
-          >
-            <div>
-              <img
-                src={images[nav0]}
-                alt="A-Star Car Sales car image"
-                className={css.carouselNavImage}
-                onClick={() => setMainImage(images[nav0])}
-              />
-            </div>
-          </GridItem>
-          <GridItem
-            sm="four"
-            xs="six"
-            className={css.carouselNavGridItem}
-            center="yes"
-          >
-            <div>
-              <img
-                src={images[nav1]}
-                alt="A-Star Car Sales car image"
-                className={css.carouselNavImage}
-                onClick={() => setMainImage(images[nav1])}
-              />
-            </div>
-          </GridItem>
-          <GridItem
-            sm="four"
-            xs="six"
-            className={css.carouselNavGridItem}
-            center="yes"
-          >
-            <div>
-              <img
-                src={images[nav2]}
-                alt="A-Star Car Sales car image"
-                className={css.carouselNavImage}
-                onClick={() => setMainImage(images[nav2])}
-              />
-            </div>
-          </GridItem>
-        </GridContainer>
+        <Container>
+          <GridContainer>
+            <GridItem
+              sm="four"
+              xs="six"
+              className={css.carouselNavGridItem}
+              center="yes"
+            >
+              <div>
+                <img
+                  src={images[nav0]}
+                  alt="A-Star Car Sales car image"
+                  className={css.carouselNavImage}
+                  onClick={() => setMainImage(images[nav0])}
+                />
+              </div>
+            </GridItem>
+            <GridItem
+              sm="four"
+              xs="six"
+              className={css.carouselNavGridItem}
+              center="yes"
+            >
+              <div>
+                <img
+                  src={images[nav1]}
+                  alt="A-Star Car Sales car image"
+                  className={css.carouselNavImage}
+                  onClick={() => setMainImage(images[nav1])}
+                />
+              </div>
+            </GridItem>
+            <GridItem
+              sm="four"
+              xs="six"
+              className={css.carouselNavGridItem}
+              center="yes"
+            >
+              <div>
+                <img
+                  src={images[nav2]}
+                  alt="A-Star Car Sales car image"
+                  className={css.carouselNavImage}
+                  onClick={() => setMainImage(images[nav2])}
+                />
+              </div>
+            </GridItem>
+          </GridContainer>
+        </Container>
         <button
           className={css.navButton}
           onClick={() => {

@@ -8,6 +8,9 @@
   padding: 0.3rem;
 }
 
+.carouselMainImg {
+  border-radius: 20px;
+}
 .carouselNavImage {
   max-width: 95%;
   border-radius: 20px;

@@ -5,7 +5,7 @@ import { GridItem } from "../components/styles/GridItem";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/faq.module.css";
 
-import faqDB from "../faqDB";
+import faqDB from "../tempData/faqDB";
 import FAQcard from "../components/FAQcard";
 import Footer from "../components/Footer";
 
