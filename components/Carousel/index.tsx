@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container } from "../styles/Container";
 import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
+import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import css from "./Carousel.module.css";
 
@@ -32,13 +33,34 @@ export default function Carousel({ images }: Props) {
   let nav1 = ("image" + (carouselNav + 1).toString()) as keyof typeof images;
   let nav2 = ("image" + (carouselNav + 2).toString()) as keyof typeof images;
 
+  const handleNavButtonClick = (operation: string) => {
+    if (operation == "add") {
+      if (carouselNav == 10) {
+        return;
+      }
+      setCarouselNav(carouselNav + 1);
+    } else {
+      if (carouselNav == 1) {
+        return;
+      }
+      setCarouselNav(carouselNav - 1);
+    }
+  };
+
   return (
     <Container padding="no">
       <Container padding="no">
         <img src={mainImage} alt="A-Star Car Sales car image" />
       </Container>
       <div className={css.carouselNavDiv}>
-        L
+        <button
+          className={css.navButton}
+          onClick={() => {
+            handleNavButtonClick("remove");
+          }}
+        >
+          <BsArrowLeftShort size={"2em"} className={css.navButtonIcon} />
+        </button>
         <GridContainer>
           <GridItem
             sm="four"
@@ -86,10 +108,24 @@ export default function Carousel({ images }: Props) {
             </div>
           </GridItem>
         </GridContainer>
-        R
+        <button
+          className={css.navButton}
+          onClick={() => {
+            handleNavButtonClick("add");
+          }}
+        >
+          <BsArrowRightShort size={"2em"} className={css.navButtonIcon} />
+        </button>
       </div>
       <div className={css.carouselNavDivXS}>
-        L
+        <button
+          className={css.navButton}
+          onClick={() => {
+            handleNavButtonClick("remove");
+          }}
+        >
+          <BsArrowLeftShort size={"2em"} className={css.navButtonIcon} />
+        </button>
         <GridContainer>
           <GridItem xs="six" className={css.carouselNavGridItem} center="yes">
             <div>
@@ -97,6 +133,7 @@ export default function Carousel({ images }: Props) {
                 src={images[nav0]}
                 alt="A-Star Car Sales car image"
                 className={css.carouselNavImage}
+                onClick={() => setMainImage(images[nav0])}
               />
             </div>
           </GridItem>
@@ -106,11 +143,19 @@ export default function Carousel({ images }: Props) {
                 src={images[nav1]}
                 alt="A-Star Car Sales car image"
                 className={css.carouselNavImage}
+                onClick={() => setMainImage(images[nav1])}
               />
             </div>
           </GridItem>
         </GridContainer>
-        R
+        <button
+          className={css.navButton}
+          onClick={() => {
+            handleNavButtonClick("add");
+          }}
+        >
+          <BsArrowRightShort size={"2em"} className={css.navButtonIcon} />
+        </button>
       </div>
     </Container>
   );

@@ -17,6 +17,25 @@
   cursor: pointer;
 }
 
+.navButton {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background: none;
+  /* border: 1px solid rgba(34, 33, 33, 0.366); */
+  border: none;
+}
+
+.navButtonIcon {
+  position: absolute;
+}
+
+.navButton:hover {
+  cursor: pointer;
+}
 @media only screen and (max-width: 600px) {
   .carouselNavDiv {
     display: none;
