@@ -6,7 +6,7 @@ import { useState } from "react";
 import NavBar from "../components/NavBar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isLight, setIsLight] = useState(false);
+  const [isLight, setIsLight] = useState(true);
   const theme = useTheme();
   return (
     <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
