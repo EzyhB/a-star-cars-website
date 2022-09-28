@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Container } from "../styles/Container";
-import { DropdownMenu } from "../styles/DropdownMenu";
+import { DropdownItem, DropdownMenu } from "../styles/DropdownMenu";
 import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
@@ -28,6 +28,26 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             }
             alt="a-star-car-sales-logo"
           />
+          <div>
+            <DropdownMenu
+              setIsLight={setIsLight}
+              isLight={isLight}
+              justify="start"
+            >
+              <Link href={"/"}>
+                <DropdownItem>Home</DropdownItem>
+              </Link>
+              <Link href={"/cars"}>
+                <DropdownItem>Cars</DropdownItem>
+              </Link>
+              <Link href={"/faq"}>
+                <DropdownItem>FAQ/Support</DropdownItem>
+              </Link>
+              <Link href={"/about"}>
+                <DropdownItem>About</DropdownItem>
+              </Link>
+            </DropdownMenu>
+          </div>
         </GridItem>
         <GridItem className={css.xsLogoGrid} xl="two" md="four" xs="six">
           <div className={css.mdNavBar}>
@@ -53,15 +73,17 @@ export default function NavBar({ isLight, setIsLight }: Props) {
               </a>
             </Link>
           </div>
-          <img
-            className={css.xsLogo}
-            src={
-              isLight
-                ? "./images/a-star-car-sales-light-logo.png"
-                : "./images/a-star-car-sales-dark-logo.png"
-            }
-            alt="a-star-car-sales-logo"
-          />
+          <div className={css.xsLogoGrid}>
+            <img
+              className={css.xsLogo}
+              src={
+                isLight
+                  ? "./images/a-star-car-sales-light-logo.png"
+                  : "./images/a-star-car-sales-dark-logo.png"
+              }
+              alt="a-star-car-sales-logo"
+            />
+          </div>
         </GridItem>
         <GridItem
           className={css.themeSwitchGrid}
@@ -69,7 +91,15 @@ export default function NavBar({ isLight, setIsLight }: Props) {
           md="four"
           xs="three"
         >
-          <DropdownMenu setIsLight={setIsLight} isLight={isLight} />
+          <DropdownMenu setIsLight={setIsLight} isLight={isLight} justify="end">
+            <Link href={"/about"}>
+              <DropdownItem>Contact Us</DropdownItem>
+            </Link>
+
+            <DropdownItem onClick={() => setIsLight(!isLight)}>
+              Theme
+            </DropdownItem>
+          </DropdownMenu>
         </GridItem>
       </GridContainer>
     </Container>

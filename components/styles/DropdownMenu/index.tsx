@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-import Link from "next/link";
+import onClickOutside from "react-onclickoutside";
 
 const MenuBody = styled.nav`
   min-height: 0.6rem;
@@ -10,14 +10,22 @@ const MenuBody = styled.nav`
   /* border-bottom: 1px solid ${(props) => props.theme.pallette.secondary}; */
 `;
 
-const MenuList = styled.ul`
+interface MenuProps {
+  justify?: string;
+}
+const MenuList = styled.ul<MenuProps>`
   list-style: none;
   margin: 0;
   padding: 0;
   max-width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: ${(props) =>
+    props.justify
+      ? props.justify === "end"
+        ? "flex-end"
+        : "flex-start"
+      : "flex-start"};
 `;
 
 const MenuItem = styled.li`
@@ -50,10 +58,13 @@ const Dropdown = styled.div`
   position: absolute;
   min-width: 170px;
   top: 70px;
-  right: 50px;
+  /* right: 50px; */
+  /* margin: 0rem 10rem; */
+  box-shadow: 1px 1px 0 0 hsla(0, 0%, 100%, 0.5), 0 3px 8px 0 #555a64;
+
   transform: translate(-45%);
   background-color: ${(props) => props.theme.pallette.primary};
-  border-bottom: 1px solid ${(props) => props.theme.pallette.secondary};
+  /* border-bottom: 1px solid ${(props) => props.theme.pallette.secondary}; */
   border-radius: 8px;
   padding: 1rem;
   overflow: hidden;
@@ -72,7 +83,7 @@ const Dropdown = styled.div`
   }
 `;
 
-const DropdownItem = styled.a`
+export const DropdownItem = styled.a`
   height: 50px;
   display: flex;
   align-items: center;
@@ -91,18 +102,40 @@ const DropdownItem = styled.a`
 interface Props {
   isLight: boolean;
   setIsLight: Function;
+  children?: JSX.Element | JSX.Element[];
+  justify: string;
 }
 
-export const DropdownMenu = ({ isLight, setIsLight }: Props) => {
+export const DropdownMenu = ({
+  isLight,
+  setIsLight,
+  children,
+  justify,
+}: Props) => {
   const [open, setOpen] = useState(false);
+  // DropdownMenu.handleClickOutside = () => {
+  //   setOpen(!open);
+  // };
   return (
     <MenuBody>
-      <MenuList>
+      <MenuList justify={justify}>
         <MenuItem>
           <MenuAnchor onClick={() => setOpen(!open)}>M</MenuAnchor>
           {open && (
-            <Dropdown>
-              <Link href={"/about"}>
+            <Dropdown onClick={() => setOpen(!open)}>{children}</Dropdown>
+          )}
+        </MenuItem>
+      </MenuList>
+    </MenuBody>
+  );
+};
+// const clickOutsideConfig = {
+//   handleClickOutside: DropdownMenu.handleClickOutside,
+// };
+// export default onClickOutside(DropdownMenu, clickOutsideConfig);
+
+{
+  /* <Link href={"/about"}>
                 <DropdownItem>Contact Us</DropdownItem>
               </Link>
 
@@ -112,11 +145,5 @@ export const DropdownMenu = ({ isLight, setIsLight }: Props) => {
 
               <Link href={"/about"}>
                 <DropdownItem>Admin/Login</DropdownItem>
-              </Link>
-            </Dropdown>
-          )}
-        </MenuItem>
-      </MenuList>
-    </MenuBody>
-  );
-};
+              </Link> */
+}
