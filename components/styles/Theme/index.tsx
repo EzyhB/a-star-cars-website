@@ -69,7 +69,7 @@ export const lightTheme = {
 };
 export const darkTheme = {
   pallette: {
-    primary: "#798191",
+    primary: "#8a94a8",
     secondary: "#d2c17d",
     background: "#bac8d4",
     text: "#28293E",
