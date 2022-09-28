@@ -6,6 +6,8 @@ import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
 
+import { BsCaretDownFill } from "react-icons/bs";
+
 import css from "./NavBar.module.css";
 
 interface Props {
@@ -28,26 +30,6 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             }
             alt="a-star-car-sales-logo"
           />
-          <div>
-            <DropdownMenu
-              setIsLight={setIsLight}
-              isLight={isLight}
-              justify="start"
-            >
-              <Link href={"/"}>
-                <DropdownItem>Home</DropdownItem>
-              </Link>
-              <Link href={"/cars"}>
-                <DropdownItem>Cars</DropdownItem>
-              </Link>
-              <Link href={"/faq"}>
-                <DropdownItem>FAQ/Support</DropdownItem>
-              </Link>
-              <Link href={"/about"}>
-                <DropdownItem>About</DropdownItem>
-              </Link>
-            </DropdownMenu>
-          </div>
         </GridItem>
         <GridItem className={css.xsLogoGrid} xl="two" md="four" xs="six">
           <div className={css.mdNavBar}>
@@ -99,6 +81,20 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             <DropdownItem onClick={() => setIsLight(!isLight)}>
               Theme
             </DropdownItem>
+            <div className={css.xsMenu}>
+              <Link href={"/"}>
+                <DropdownItem>Home</DropdownItem>
+              </Link>
+              <Link href={"/cars"}>
+                <DropdownItem>Cars</DropdownItem>
+              </Link>
+              <Link href={"/faq"}>
+                <DropdownItem>FAQ/Support</DropdownItem>
+              </Link>
+              <Link href={"/about"}>
+                <DropdownItem>About</DropdownItem>
+              </Link>
+            </div>
           </DropdownMenu>
         </GridItem>
       </GridContainer>

@@ -14,9 +14,14 @@
   display: flex;
 }
 
+.xsMenu {
+  display: block;
+}
+
 .themeSwitchGrid {
   display: flex;
   justify-content: flex-end;
+  padding: 1rem;
 }
 
 .themeSwitchBackground {
@@ -58,6 +63,10 @@
   .xsLogoGrid {
     justify-content: center;
   }
+
+  .themeSwitchGrid {
+    padding: 1rem 0rem;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -70,6 +79,9 @@
     justify-content: space-between;
   }
 
+  .xsMenu {
+    display: none;
+  }
   .xsLogo {
     display: none;
   }

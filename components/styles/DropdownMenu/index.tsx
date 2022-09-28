@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import onClickOutside from "react-onclickoutside";
+import { BsCaretDownFill } from "react-icons/bs";
 
 const MenuBody = styled.nav`
   min-height: 0.6rem;
@@ -57,8 +58,8 @@ const MenuAnchor = styled.a`
 const Dropdown = styled.div`
   position: absolute;
   min-width: 170px;
-  top: 70px;
-  /* right: 50px; */
+  top: 55px;
+  right: 40px;
   /* margin: 0rem 10rem; */
   box-shadow: 1px 1px 0 0 hsla(0, 0%, 100%, 0.5), 0 3px 8px 0 #555a64;
 
@@ -120,7 +121,9 @@ export const DropdownMenu = ({
     <MenuBody>
       <MenuList justify={justify}>
         <MenuItem>
-          <MenuAnchor onClick={() => setOpen(!open)}>M</MenuAnchor>
+          <MenuAnchor onClick={() => setOpen(!open)}>
+            <BsCaretDownFill />
+          </MenuAnchor>
           {open && (
             <Dropdown onClick={() => setOpen(!open)}>{children}</Dropdown>
           )}
