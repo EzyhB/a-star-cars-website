@@ -21,16 +21,16 @@ const InputForm = styled.form`
     height: 50px;
   }
   @media only screen and (max-width: 500px) {
-    height: 50px;
+    height: 40px;
   }
 `;
 const SearchBarOutline = styled.div`
-  flex-grow: 0.6;
+  width: 80%;
 
   height: 100%;
   border-radius: 45px;
   border: 1px solid ${(props) => props.theme.pallette.secondary};
-  /* background-color: ${(props) => props.theme.pallette.background}; */
+
   background-color: rgba(255, 255, 255, 0.74);
 `;
 
@@ -47,7 +47,7 @@ const TextSearch = styled.input`
 `;
 
 const RegSearch = styled.select`
-  width: 20%;
+  width: 25%;
   height: 100%;
   cursor: pointer;
   font-family: inherit;
@@ -76,14 +76,14 @@ const TypeSearch = styled.select`
 `;
 
 const searchButtonDiv = styled.div`
-  flex-grow: 0.4;
+  width: 20%;
 `;
 const InputSearchButton = styled.button`
   flex-grow: 0.4;
   height: 100%;
 
   background: url(${(props) =>
-    props.theme.pallette.primary == "rgba(5, 153, 47, 0.3)"
+    props.theme.pallette.primary == "#A7DBAB"
       ? "/images/search-icon-light.png"
       : "/images/search-icon-dark.png"});
   background-repeat: no-repeat;
