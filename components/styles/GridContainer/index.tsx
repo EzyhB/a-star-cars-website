@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-const GridContainer = styled.div`
+interface Props {
+  reverse?: string;
+}
+
+const GridContainer = styled.div<Props>`
   box-sizing: border-box;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: ${(props) =>
+      props.reverse ? (props.reverse == "yes" ? "row-reverse" : "row") : "row"}
+    wrap;
   width: 100%;
 `;
 

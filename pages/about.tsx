@@ -33,7 +33,7 @@ export default function about() {
           </GridContainer>
         </Container>
         <Container maxWidth="md" className={css.aboutGridContainer}>
-          <GridContainer>
+          <GridContainer reverse="yes">
             <GridItem md="six" className={css.aboutGridItem}>
               <img
                 src="images/a-star-car-sales-finance.png"
