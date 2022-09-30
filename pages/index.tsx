@@ -7,7 +7,7 @@ import { GridItem } from "../components/styles/GridItem";
 import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/homepage.module.css";
-import mockDB from "../tempData/mockDB";
+
 import ButtonHollow from "../components/styles/ButtonHollow";
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -37,10 +37,6 @@ interface Car {
   created: string;
 }
 
-interface CarImage {
-  image: string;
-}
-
 interface FetchImage {
   id: string;
   image1: string;
@@ -56,12 +52,6 @@ interface FetchImage {
   image11: string;
   image12: string;
 }
-
-type ImagePromise = Promise<FetchImage[]>;
-
-type FetchImages = FetchImage[];
-
-type CarImagesUseState = CarImage[];
 
 type Cars = Car[];
 
@@ -140,25 +130,8 @@ const CarsDefaultState = [
   },
 ];
 
-// const carImageDefaultState = [
-//   {
-//     image:
-//       "https://media.cazoo.com/image/upload/c_scale,f_auto,h_1080,q_auto,w_1920/cazoo-imagery/car_gallery_images/WVGZZZ5NZKW828571/ad84dbfd-4088-4dcd-bd1c-03071f3604d7.jpg",
-//   },
-//   {
-//     image:
-//       "https://media.cazoo.com/image/upload/c_scale,f_auto,h_1080,q_auto,w_1920/cazoo-imagery/car_gallery_images/SJNTAAJ12U1008668/0db8f4c3-9230-45e2-b1fb-cbc1b8864d3c.jpg",
-//   },
-//   {
-//     image:
-//       "https://cdn.discordapp.com/attachments/786789211315109927/1025101243712028692/unknown.png",
-//   },
-// ];
-
 const Home: NextPage = () => {
   const [latestCars, setLatestCars] = useState<Cars>(CarsDefaultState);
-  // const [CarImages, setCarImages] =
-  //   useState<CarImagesUseState>(carImageDefaultState);
 
   useEffect(() => {
     const fetchLatestCars = async () => {
@@ -166,23 +139,11 @@ const Home: NextPage = () => {
         "https://a-star-cars-backend.vercel.app/api/cars"
       );
       let latest = [] as Cars;
-      // let images = [] as CarImagesUseState;
+
       const data = await response.json();
       latest = [data[0], data[1], data[2]];
-      latest.forEach(async (el, index) => {
-        const response = await fetch(
-          `https://a-star-cars-backend.vercel.app/api/image/${el.id}`
-        );
-
-        const data = (await response.json()) as FetchImage[];
-
-        latest[index].image = data[0].image1;
-      });
-      console.log("latesttttttttt", latest);
 
       setLatestCars(latest);
-      // setCarImages(images);
-      // console.log("images", CarImages);
     };
 
     fetchLatestCars();
@@ -265,7 +226,7 @@ const Home: NextPage = () => {
           Browse our latest used cars
         </Typography>
         <GridContainer>
-          {latestCars?.map((el, index) => (
+          {latestCars.map((el, index) => (
             <GridItem
               lg="four"
               md="six"
