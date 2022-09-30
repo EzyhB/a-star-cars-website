@@ -6,41 +6,19 @@ import { GridItem } from "../components/styles/GridItem";
 import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/cars.module.css";
-
-import { Car, CarsDefaultState } from ".";
-
-import mockDB from "../tempData/mockDB";
 import Footer from "../components/Footer";
+import { Car } from ".";
 
-export default function Cars() {
-  const [Cars, setCars] = useState<Car[]>(CarsDefaultState);
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max);
+}
 
-  const [RecommendedCars, setRecommendedCars] =
-    useState<Car[]>(CarsDefaultState);
+interface Propss {
+  RecommendedCars: Car[];
+  Cars: Car[];
+}
 
-  function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
-  }
-
-  useEffect(() => {
-    const fetchAllCars = async () => {
-      const res = await fetch(
-        "https://a-star-cars-backend.vercel.app/api/cars"
-      );
-      const data = await res.json();
-
-      setCars(data);
-      let latest = [];
-      latest = [
-        data[getRandomInt(data.length - 1)],
-        data[getRandomInt(data.length - 1)],
-        data[getRandomInt(data.length - 1)],
-      ];
-      setRecommendedCars(latest);
-    };
-    fetchAllCars();
-  }, []);
-
+export default function Cars({ Cars, RecommendedCars }: Propss) {
   return (
     <Container maxWidth="xl">
       <div>
@@ -58,7 +36,7 @@ export default function Cars() {
       </Typography>
 
       <GridContainer>
-        {RecommendedCars.map((el, index) => (
+        {RecommendedCars.map((el) => (
           <GridItem
             lg="four"
             md="six"
@@ -113,3 +91,22 @@ export default function Cars() {
     </Container>
   );
 }
+
+export const getServerSideProps = async () => {
+  const res = await fetch("https://a-star-cars-backend.vercel.app/api/cars");
+  const data = await res.json();
+
+  let random = [];
+  random = [
+    data[getRandomInt(data.length - 1)],
+    data[getRandomInt(data.length - 1)],
+    data[getRandomInt(data.length - 1)],
+  ];
+
+  return {
+    props: {
+      RecommendedCars: random,
+      Cars: data,
+    },
+  };
+};
