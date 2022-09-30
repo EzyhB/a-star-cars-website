@@ -33,10 +33,9 @@ export default function FAQAnswer() {
 
     setId(Number(query.id));
     const splitAns = faqDB[Number(query.id)].answer.split("*");
-    console.log(splitAns);
 
     setAnswer(splitAns);
-  }, []);
+  }, [router.query]);
 
   return (
     <Container maxWidth="md">

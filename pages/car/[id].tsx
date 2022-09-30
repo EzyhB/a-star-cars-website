@@ -97,7 +97,7 @@ export default function Car() {
 
     getCarByID();
     getImagesByID();
-  }, []);
+  }, [id]);
 
   return (
     <Container>
