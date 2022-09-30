@@ -55,7 +55,7 @@ export interface FetchImage {
 
 type Cars = Car[];
 
-const CarsDefaultState = [
+export const CarsDefaultState = [
   {
     id: "4c83d4bd-4213-454c-af8c-5d7a989da92a",
     name: "Volkswagen Tiguan Allspace",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CarDiscplayCard from "../components/CarDisplayCard";
 import { Container } from "../components/styles/Container";
 import { GridContainer } from "../components/styles/GridContainer";
@@ -7,10 +7,40 @@ import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/cars.module.css";
 
+import { Car, CarsDefaultState } from ".";
+
 import mockDB from "../tempData/mockDB";
 import Footer from "../components/Footer";
 
-export default function cars() {
+export default function Cars() {
+  const [Cars, setCars] = useState<Car[]>(CarsDefaultState);
+
+  const [RecommendedCars, setRecommendedCars] =
+    useState<Car[]>(CarsDefaultState);
+
+  function getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
+  }
+
+  useEffect(() => {
+    const fetchAllCars = async () => {
+      const res = await fetch(
+        "https://a-star-cars-backend.vercel.app/api/cars"
+      );
+      const data = await res.json();
+
+      setCars(data);
+      let latest = [];
+      latest = [
+        data[getRandomInt(data.length - 1)],
+        data[getRandomInt(data.length - 1)],
+        data[getRandomInt(data.length - 1)],
+      ];
+      setRecommendedCars(latest);
+    };
+    fetchAllCars();
+  }, []);
+
   return (
     <Container maxWidth="xl">
       <div>
@@ -28,57 +58,27 @@ export default function cars() {
       </Typography>
 
       <GridContainer>
-        <GridItem
-          lg="four"
-          md="six"
-          className={css.featureCarImageContainer}
-          center="yes"
-        >
-          <CarDiscplayCard
-            carName={mockDB[0].carName}
-            carImage={mockDB[0].carImage}
-            carSubName={mockDB[0].carSubname}
-            miles={mockDB[0].miles}
-            reg={mockDB[0].reg}
-            trans={mockDB[0].trans}
-            fuel={mockDB[0].fuel}
-            price={mockDB[0].price}
-          ></CarDiscplayCard>
-        </GridItem>
-        <GridItem
-          lg="four"
-          md="six"
-          className={css.featureCarImageContainer}
-          center="yes"
-        >
-          <CarDiscplayCard
-            carName={mockDB[1].carName}
-            carImage={mockDB[1].carImage}
-            carSubName={mockDB[1].carSubname}
-            miles={mockDB[1].miles}
-            reg={mockDB[1].reg}
-            trans={mockDB[1].trans}
-            fuel={mockDB[1].fuel}
-            price={mockDB[1].price}
-          ></CarDiscplayCard>
-        </GridItem>
-        <GridItem
-          lg="four"
-          md="six"
-          className={css.featureCarImageContainer}
-          center="yes"
-        >
-          <CarDiscplayCard
-            carName={mockDB[2].carName}
-            carImage={mockDB[2].carImage}
-            carSubName={mockDB[2].carSubname}
-            miles={mockDB[2].miles}
-            reg={mockDB[2].reg}
-            trans={mockDB[2].trans}
-            fuel={mockDB[2].fuel}
-            price={mockDB[2].price}
-          ></CarDiscplayCard>
-        </GridItem>
+        {RecommendedCars.map((el, index) => (
+          <GridItem
+            lg="four"
+            md="six"
+            className={css.featureCarImageContainer}
+            center="yes"
+            key={el.id}
+          >
+            <CarDiscplayCard
+              carName={el.name}
+              carImage={el.image}
+              carSubName={el.sub_name}
+              miles={el.miles}
+              reg={el.reg}
+              trans={el.trans}
+              fuel={el.fuel}
+              price={el.price}
+              carId={el.id}
+            ></CarDiscplayCard>
+          </GridItem>
+        ))}
       </GridContainer>
 
       <Container padding="no" maxWidth="xl" background="primary">
@@ -86,7 +86,7 @@ export default function cars() {
           Our Selection
         </Typography>
         <GridContainer>
-          {mockDB.map((el, index) => (
+          {Cars.map((el, index) => (
             <GridItem
               lg="four"
               md="six"
@@ -95,14 +95,15 @@ export default function cars() {
               center="yes"
             >
               <CarDiscplayCard
-                carName={el.carName}
-                carImage={el.carImage}
-                carSubName={el.carSubname}
+                carName={el.name}
+                carImage={el.image}
+                carSubName={el.sub_name}
                 miles={el.miles}
                 reg={el.reg}
                 trans={el.trans}
                 fuel={el.fuel}
                 price={el.price}
+                carId={el.id}
               ></CarDiscplayCard>
             </GridItem>
           ))}
