@@ -8,7 +8,7 @@ import { GridContainer } from "../../components/styles/GridContainer";
 import { GridItem } from "../../components/styles/GridItem";
 import { Typography } from "../../components/styles/Typography";
 
-import { Car, FetchImage } from "..";
+import { Car as Carr, FetchImage } from "..";
 
 import css from "./Car.module.css";
 import { useRouter } from "next/router";
@@ -67,7 +67,7 @@ const defaultImageState = {
 };
 
 export default function Car() {
-  const [carz, setCarz] = useState<Car>(defaultCarState);
+  const [carz, setCarz] = useState<Carr>(defaultCarState);
   const [image, setImage] = useState<FetchImage>(defaultImageState);
 
   const router = useRouter();
