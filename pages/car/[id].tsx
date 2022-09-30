@@ -8,8 +8,6 @@ import { GridContainer } from "../../components/styles/GridContainer";
 import { GridItem } from "../../components/styles/GridItem";
 import { Typography } from "../../components/styles/Typography";
 
-import carDB from "../../tempData/carDB";
-import { carImageDB } from "../../tempData/carDB";
 import { Car, FetchImage } from "..";
 
 import css from "./Car.module.css";
@@ -69,9 +67,9 @@ const defaultImageState = {
 };
 
 export default function Car() {
-  const [car, setCar] = useState<Car>(defaultCarState);
+  const [carz, setCarz] = useState<Car>(defaultCarState);
   const [image, setImage] = useState<FetchImage>(defaultImageState);
-  const carr = carDB[0];
+
   const router = useRouter();
   const { id } = router.query;
 
@@ -81,9 +79,8 @@ export default function Car() {
         `https://a-star-cars-backend.vercel.app/api/car/${id}`
       );
       const data = await res.json();
-      console.log("car", data);
 
-      setCar(data);
+      setCarz(data);
     };
     const getImagesByID = async () => {
       const res = await fetch(
@@ -108,13 +105,13 @@ export default function Car() {
           </GridItem>
           <GridItem lg="four" md="five" className={css.carPaymentInfoGrid}>
             <div className={css.carPaymentInfoCard}>
-              <Typography variant="h6">{car.name}</Typography>
-              <Typography>{car.sub_name}</Typography>
+              <Typography variant="h6">{carz.name}</Typography>
+              <Typography>{carz.sub_name}</Typography>
               <div className={css.shortSpecs}>
-                <CarSpecs miles={car.miles} />
-                <CarSpecs reg={car.reg} />
-                <CarSpecs trans={car.trans} />
-                <CarSpecs fuel={car.fuel} />
+                <CarSpecs miles={carz.miles} />
+                <CarSpecs reg={carz.reg} />
+                <CarSpecs trans={carz.trans} />
+                <CarSpecs fuel={carz.fuel} />
               </div>
               <Container
                 className={css.carPaymentActionCard}
@@ -122,13 +119,13 @@ export default function Car() {
               >
                 <div className={css.carPrice}>
                   <Typography variant="h6">
-                    {car.price.toLocaleString("en-US", {
+                    {carz.price.toLocaleString("en-US", {
                       style: "currency",
                       currency: "GBP",
                     })}
                   </Typography>
                   <Typography>
-                    {((car.price / 100) * 1.7).toLocaleString("en-US", {
+                    {((carz.price / 100) * 1.7).toLocaleString("en-US", {
                       style: "currency",
                       currency: "GBP",
                     })}
@@ -194,64 +191,64 @@ export default function Car() {
           <GridItem md="six" className={css.specsGrid1}>
             <div className={css.carPrice}>
               <Typography>Miles</Typography>
-              <Typography variant="body2">{car.miles}</Typography>
+              <Typography variant="body2">{carz.miles}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Registration</Typography>
-              <Typography variant="body2">{car.reg}</Typography>
+              <Typography variant="body2">{carz.reg}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Transmission</Typography>
-              <Typography variant="body2">{car.trans}</Typography>
+              <Typography variant="body2">{carz.trans}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Seats</Typography>
-              <Typography variant="body2">{car.seats}</Typography>
+              <Typography variant="body2">{carz.seats}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Fuel</Typography>
-              <Typography variant="body2">{car.fuel}</Typography>
+              <Typography variant="body2">{carz.fuel}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Engine</Typography>
-              <Typography variant="body2">{car.engine}</Typography>
+              <Typography variant="body2">{carz.engine}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Body Type</Typography>
-              <Typography variant="body2">{car.body_type}</Typography>
+              <Typography variant="body2">{carz.body_type}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Exterior Colour</Typography>
-              <Typography variant="body2">{car.exterior_color}</Typography>
+              <Typography variant="body2">{carz.exterior_color}</Typography>
             </div>
           </GridItem>
           <GridItem md="six" className={css.specsGrid2}>
             <div className={css.carPrice}>
               <Typography>Drive Type</Typography>
-              <Typography variant="body2">{car.drive_type}</Typography>
+              <Typography variant="body2">{carz.drive_type}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Registration Number</Typography>
-              <Typography variant="body2">{car.reg_num}</Typography>
+              <Typography variant="body2">{carz.reg_num}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Previous Owners</Typography>
-              <Typography variant="body2">{car.previous_owners}</Typography>
+              <Typography variant="body2">{carz.previous_owners}</Typography>
             </div>
 
             <div className={css.carPrice}>
               <Typography>Top Speed</Typography>
-              <Typography variant="body2">{car.top_speed}</Typography>
+              <Typography variant="body2">{carz.top_speed}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Acceleration (0-60)MPH</Typography>
               <Typography variant="body2">
-                {car.acceleration} seconds
+                {carz.acceleration} seconds
               </Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Power</Typography>
-              <Typography variant="body2">{car.power} bhp</Typography>
+              <Typography variant="body2">{carz.power} bhp</Typography>
             </div>
           </GridItem>
         </GridContainer>
