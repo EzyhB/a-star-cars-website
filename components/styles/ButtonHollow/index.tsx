@@ -22,6 +22,7 @@ const ButtonHollow = styled.button<Props>`
 
   &:hover {
     background: ${(props) => props.theme.pallette.secondary};
+    cursor: pointer;
   }
 `;
 
