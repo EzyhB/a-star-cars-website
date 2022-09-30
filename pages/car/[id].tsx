@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Carousel from "../../components/Carousel";
 import Footer from "../../components/Footer";
 import ButtonHollow from "../../components/styles/ButtonHollow";
@@ -7,95 +7,23 @@ import { Container } from "../../components/styles/Container";
 import { GridContainer } from "../../components/styles/GridContainer";
 import { GridItem } from "../../components/styles/GridItem";
 import { Typography } from "../../components/styles/Typography";
+import { GetServerSidePropsContext } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 import { Car as Carr, FetchImage } from "..";
 
 import css from "./Car.module.css";
-import { useRouter } from "next/router";
 
-const defaultCarState = {
-  id: "radomIDGen2003",
-  name: "Ford Kuga",
-  image:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1025101243712028692/unknown.png",
-  sub_name: "2.5L ST-Line X EcoBoost Duratec",
-  price: 31000,
-  miles: 15123,
-  reg: 2020,
-  trans: "Automatic",
-  fuel: "Petrol",
-  seats: 5,
-  engine: "2.5",
-  body_type: "5 door SUV",
-  exterior_color: "Grey",
-  drive_type: "Front wheel drive",
-  reg_num: "YR20 YXU",
-  previous_owners: 1,
-  num_of_keys: 2,
-  top_speed: 125,
-  acceleration: "9.2",
-  power: 222,
-  created: "2022-09-29T16:56:03.670Z",
-};
+interface Params extends ParsedUrlQuery {
+  id: string;
+}
 
-const defaultImageState = {
-  id: "radomIDGen2000",
-  image1:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647229191397456/unknown.png",
-  image2:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647267795775558/unknown.png",
-  image3:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647288389800047/unknown.png",
-  image4:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647322187513966/unknown.png",
-  image5:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647352248090815/unknown.png",
-  image6:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647380471558174/unknown.png",
-  image7:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647412264374433/unknown.png",
-  image8:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647441142153308/unknown.png",
-  image9:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647465934688376/unknown.png",
-  image10:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647490374905967/unknown.png",
-  image11:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647513175134279/unknown.png",
-  image12:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647542686257193/unknown.png",
-};
+interface propss {
+  carz: Carr;
+  image: FetchImage;
+}
 
-export default function Car() {
-  const [carz, setCarz] = useState<Carr>(defaultCarState);
-  const [image, setImage] = useState<FetchImage>(defaultImageState);
-
-  const router = useRouter();
-  const { id } = router.query;
-
-  useEffect(() => {
-    const getCarByID = async () => {
-      const res = await fetch(
-        `https://a-star-cars-backend.vercel.app/api/car/${id}`
-      );
-      const data = await res.json();
-
-      setCarz(data);
-    };
-    const getImagesByID = async () => {
-      const res = await fetch(
-        `https://a-star-cars-backend.vercel.app/api/image/${id}`
-      );
-      const data = await res.json();
-      console.log("image", data);
-
-      setImage(data);
-    };
-
-    getCarByID();
-    getImagesByID();
-  }, [id]);
-
+export default function Car({ carz, image }: propss) {
   return (
     <Container>
       <Container padding="no" className={css.topMargin}>
@@ -119,10 +47,11 @@ export default function Car() {
               >
                 <div className={css.carPrice}>
                   <Typography variant="h6">
-                    {carz.price.toLocaleString("en-US", {
-                      style: "currency",
-                      currency: "GBP",
-                    })}
+                    {carz.price &&
+                      carz.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "GBP",
+                      })}
                   </Typography>
                   <Typography>
                     {((carz.price / 100) * 1.7).toLocaleString("en-US", {
@@ -257,3 +186,27 @@ export default function Car() {
     </Container>
   );
 }
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const params = context.params as Params;
+
+  const id = params.id;
+  const res = await fetch(
+    `https://a-star-cars-backend.vercel.app/api/car/${id}`
+  );
+  const data = await res.json();
+
+  const res1 = await fetch(
+    `https://a-star-cars-backend.vercel.app/api/image/${id}`
+  );
+  const data1 = await res1.json();
+
+  return {
+    props: {
+      carz: data[0],
+      image: data1[0],
+    },
+  };
+};
