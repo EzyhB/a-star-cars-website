@@ -14,7 +14,7 @@ import { Car as Carr, FetchImage } from "..";
 
 import css from "./Car.module.css";
 
-interface Params extends ParsedUrlQuery {
+export interface Params extends ParsedUrlQuery {
   id: string;
 }
 

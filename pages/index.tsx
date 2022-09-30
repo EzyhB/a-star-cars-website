@@ -7,11 +7,12 @@ import { GridItem } from "../components/styles/GridItem";
 import InputField from "../components/styles/InputField";
 import { Typography } from "../components/styles/Typography";
 import css from "../styles/homepage.module.css";
+import { Params } from "./car/[id]";
+import { GetServerSidePropsContext } from "next";
 
 import ButtonHollow from "../components/styles/ButtonHollow";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export interface Car {
   id: string;
@@ -130,25 +131,11 @@ export const CarsDefaultState = [
   },
 ];
 
-const Home: NextPage = () => {
-  const [latestCars, setLatestCars] = useState<Cars>(CarsDefaultState);
+interface Propss {
+  latestCars: Cars;
+}
 
-  useEffect(() => {
-    const fetchLatestCars = async () => {
-      const response = await fetch(
-        "https://a-star-cars-backend.vercel.app/api/cars"
-      );
-      let latest = [] as Cars;
-
-      const data = await response.json();
-      latest = [data[0], data[1], data[2]];
-
-      setLatestCars(latest);
-    };
-
-    fetchLatestCars();
-  }, []);
-
+const Home = ({ latestCars }: Propss) => {
   return (
     <Container
       maxWidth="xl"
@@ -268,3 +255,21 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const response = await fetch(
+    "https://a-star-cars-backend.vercel.app/api/cars"
+  );
+  let latest = [] as Cars;
+
+  const data = await response.json();
+  latest = [data[0], data[1], data[2]];
+
+  return {
+    props: {
+      latestCars: latest,
+    },
+  };
+};
