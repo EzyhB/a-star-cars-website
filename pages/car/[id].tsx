@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from "../../components/Carousel";
 import Footer from "../../components/Footer";
 import ButtonHollow from "../../components/styles/ButtonHollow";
@@ -10,22 +10,106 @@ import { Typography } from "../../components/styles/Typography";
 
 import carDB from "../../tempData/carDB";
 import { carImageDB } from "../../tempData/carDB";
+import { Car, FetchImage } from "..";
 
 import css from "./Car.module.css";
+import { useRouter } from "next/router";
+
+const defaultCarState = {
+  id: "radomIDGen2003",
+  name: "Ford Kuga",
+  image:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1025101243712028692/unknown.png",
+  sub_name: "2.5L ST-Line X EcoBoost Duratec",
+  price: 31000,
+  miles: 15123,
+  reg: 2020,
+  trans: "Automatic",
+  fuel: "Petrol",
+  seats: 5,
+  engine: "2.5",
+  body_type: "5 door SUV",
+  exterior_color: "Grey",
+  drive_type: "Front wheel drive",
+  reg_num: "YR20 YXU",
+  previous_owners: 1,
+  num_of_keys: 2,
+  top_speed: 125,
+  acceleration: "9.2",
+  power: 222,
+  created: "2022-09-29T16:56:03.670Z",
+};
+
+const defaultImageState = {
+  id: "radomIDGen2000",
+  image1:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647229191397456/unknown.png",
+  image2:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647267795775558/unknown.png",
+  image3:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647288389800047/unknown.png",
+  image4:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647322187513966/unknown.png",
+  image5:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647352248090815/unknown.png",
+  image6:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647380471558174/unknown.png",
+  image7:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647412264374433/unknown.png",
+  image8:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647441142153308/unknown.png",
+  image9:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647465934688376/unknown.png",
+  image10:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647490374905967/unknown.png",
+  image11:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647513175134279/unknown.png",
+  image12:
+    "https://cdn.discordapp.com/attachments/786789211315109927/1023647542686257193/unknown.png",
+};
 
 export default function Car() {
-  const car = carDB[0];
+  const [car, setCar] = useState<Car>(defaultCarState);
+  const [image, setImage] = useState<FetchImage>(defaultImageState);
+  const carr = carDB[0];
+  const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
+    const getCarByID = async () => {
+      const res = await fetch(
+        `https://a-star-cars-backend.vercel.app/api/car/${id}`
+      );
+      const data = await res.json();
+      console.log("car", data);
+
+      setCar(data);
+    };
+    const getImagesByID = async () => {
+      const res = await fetch(
+        `https://a-star-cars-backend.vercel.app/api/image/${id}`
+      );
+      const data = await res.json();
+      console.log("image", data);
+
+      setImage(data);
+    };
+
+    getCarByID();
+    getImagesByID();
+  }, []);
+
   return (
     <Container>
       <Container padding="no" className={css.topMargin}>
         <GridContainer>
           <GridItem lg="eight" md="seven">
-            <Carousel images={carImageDB[0]} />
+            <Carousel images={image} />
           </GridItem>
           <GridItem lg="four" md="five" className={css.carPaymentInfoGrid}>
             <div className={css.carPaymentInfoCard}>
               <Typography variant="h6">{car.name}</Typography>
-              <Typography>{car.subName}</Typography>
+              <Typography>{car.sub_name}</Typography>
               <div className={css.shortSpecs}>
                 <CarSpecs miles={car.miles} />
                 <CarSpecs reg={car.reg} />
@@ -134,30 +218,30 @@ export default function Car() {
             </div>
             <div className={css.carPrice}>
               <Typography>Body Type</Typography>
-              <Typography variant="body2">{car.bodyType}</Typography>
+              <Typography variant="body2">{car.body_type}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Exterior Colour</Typography>
-              <Typography variant="body2">{car.exteriorColour}</Typography>
+              <Typography variant="body2">{car.exterior_color}</Typography>
             </div>
           </GridItem>
           <GridItem md="six" className={css.specsGrid2}>
             <div className={css.carPrice}>
               <Typography>Drive Type</Typography>
-              <Typography variant="body2">{car.driveType}</Typography>
+              <Typography variant="body2">{car.drive_type}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Registration Number</Typography>
-              <Typography variant="body2">{car.regNum}</Typography>
+              <Typography variant="body2">{car.reg_num}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Previous Owners</Typography>
-              <Typography variant="body2">{car.previousOwners}</Typography>
+              <Typography variant="body2">{car.previous_owners}</Typography>
             </div>
 
             <div className={css.carPrice}>
               <Typography>Top Speed</Typography>
-              <Typography variant="body2">{car.topSpeed}</Typography>
+              <Typography variant="body2">{car.top_speed}</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Acceleration (0-60)MPH</Typography>

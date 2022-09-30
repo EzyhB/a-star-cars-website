@@ -13,7 +13,7 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface Car {
+export interface Car {
   id: string;
   name: string;
   image: string;
@@ -37,7 +37,7 @@ interface Car {
   created: string;
 }
 
-interface FetchImage {
+export interface FetchImage {
   id: string;
   image1: string;
   image2: string;
@@ -235,6 +235,7 @@ const Home: NextPage = () => {
               key={index}
             >
               <CarDiscplayCard
+                carId={el.id}
                 carName={el.name}
                 carImage={el.image}
                 carSubName={el.sub_name}
@@ -246,57 +247,6 @@ const Home: NextPage = () => {
               ></CarDiscplayCard>
             </GridItem>
           ))}
-          {/* <GridItem
-            lg="four"
-            md="six"
-            className={css.featureImageContainer}
-            center="yes"
-          >
-            <CarDiscplayCard
-              carName={mockDB[0].carName}
-              carImage={mockDB[0].carImage}
-              carSubName={mockDB[0].carSubname}
-              miles={mockDB[0].miles}
-              reg={mockDB[0].reg}
-              trans={mockDB[0].trans}
-              fuel={mockDB[0].fuel}
-              price={mockDB[0].price}
-            ></CarDiscplayCard>
-          </GridItem>
-          <GridItem
-            lg="four"
-            md="six"
-            className={css.featureImageContainer}
-            center="yes"
-          >
-            <CarDiscplayCard
-              carName={mockDB[1].carName}
-              carImage={mockDB[1].carImage}
-              carSubName={mockDB[1].carSubname}
-              miles={mockDB[1].miles}
-              reg={mockDB[1].reg}
-              trans={mockDB[1].trans}
-              fuel={mockDB[1].fuel}
-              price={mockDB[1].price}
-            ></CarDiscplayCard>
-          </GridItem>
-          <GridItem
-            lg="four"
-            md="six"
-            className={css.featureImageContainer}
-            center="yes"
-          >
-            <CarDiscplayCard
-              carName={mockDB[2].carName}
-              carImage={mockDB[2].carImage}
-              carSubName={mockDB[2].carSubname}
-              miles={mockDB[2].miles}
-              reg={mockDB[2].reg}
-              trans={mockDB[2].trans}
-              fuel={mockDB[2].fuel}
-              price={mockDB[2].price}
-            ></CarDiscplayCard>
-          </GridItem> */}
         </GridContainer>
 
         <Typography variant="h4" className={css.subHeadders} center="yes">

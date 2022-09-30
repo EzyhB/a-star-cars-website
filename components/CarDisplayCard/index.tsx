@@ -1,4 +1,5 @@
-import React from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import ButtonHollow from "../styles/ButtonHollow";
 import CarSpecs from "../styles/CarSpecs";
 import { Container } from "../styles/Container";
@@ -14,6 +15,7 @@ interface props {
   trans: string;
   fuel: string;
   price: number;
+  carId: string;
 }
 
 export default function CarDiscplayCard({
@@ -25,11 +27,20 @@ export default function CarDiscplayCard({
   trans,
   fuel,
   price,
+  carId,
 }: props) {
+  const [newImage, setNewImage] = useState("");
+
+  useEffect(() => {
+    setNewImage(carImage);
+  }, [carImage]);
+
+  console.log("CAR IMAGEEEE", carImage);
+
   return (
     <div className={css.cardBody}>
       <div>
-        <img src={carImage} alt={carName} className={css.cardImage} />
+        <img src={newImage} alt={carName} className={css.cardImage} />
       </div>
       <Container>
         <Typography variant="h6">{carName}</Typography>
@@ -49,9 +60,11 @@ export default function CarDiscplayCard({
           </Typography>
         </div>
         <div className={css.buttonContainer}>
-          <ButtonHollow className={css.button} size="xl">
-            <Typography center="yes">View this car</Typography>
-          </ButtonHollow>
+          <Link href={`https://a-star-cars-website.vercel.app/car/${carId}`}>
+            <ButtonHollow className={css.button} size="xl">
+              <Typography center="yes">View this car</Typography>
+            </ButtonHollow>
+          </Link>
         </div>
       </Container>
     </div>
