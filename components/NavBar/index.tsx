@@ -6,7 +6,7 @@ import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
 
-import { BsCaretDownFill } from "react-icons/bs";
+
 
 import css from "./NavBar.module.css";
 
