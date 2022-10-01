@@ -166,9 +166,7 @@ export default function InputField() {
           <option value={"manual"}>Manual</option>
         </TypeSearch>
       </SearchBarOutline>
-      <Link
-        href={`https://a-star-cars-website.vercel.app/cars/search?name=${Name}&trans=${Trans}&reg=${Reg}`}
-      >
+      <Link href={`/cars/search?name=${Name}&trans=${Trans}&reg=${Reg}`}>
         <InputSearchButton type={"submit"}></InputSearchButton>
       </Link>
     </InputForm>
