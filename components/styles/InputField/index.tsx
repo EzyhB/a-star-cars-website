@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import css from "./inputField.module.css";
 
@@ -96,37 +97,36 @@ const InputSearchButton = styled.button`
   }
 `;
 
-import React, { SyntheticEvent } from "react";
+import React from "react";
+import Link from "next/link";
 
 export default function InputField() {
-  const handleSubmit = (e: SyntheticEvent) => {
-    e.preventDefault();
-    const textForm = e.target as HTMLFormElement;
-    const textInput = textForm[0] as HTMLInputElement;
-    const regInput = textForm[1] as HTMLInputElement;
-    const transInput = textForm[2] as HTMLInputElement;
+  const [Name, setName] = useState("");
+  const [Reg, setReg] = useState("");
+  const [Trans, setTrans] = useState("");
 
-    console.log(
-      "dis da test",
-      textInput.value,
-      regInput.value,
-      transInput.value
-    );
-  };
   return (
-    <InputForm
-      onSubmit={(e) => {
-        handleSubmit(e);
-      }}
-    >
+    <InputForm>
       <SearchBarOutline>
         <TextSearch
           type={"text"}
           lang={"en"}
           title={"Search for your car..."}
           placeholder={"Search for your car..."}
+          onChange={(e) => {
+            if (e.target.value.trim()) {
+              setName(e.target.value);
+            }
+          }}
         ></TextSearch>
-        <RegSearch title={"select year of registeation..."}>
+        <RegSearch
+          title={"select year of registeation..."}
+          onChange={(e) => {
+            if (e.target.value !== "Registration-") {
+              setReg(e.target.value);
+            }
+          }}
+        >
           <option>Registration-</option>
           <option value={"2022"}>2022</option>
           <option value={"2021"}>2021</option>
@@ -153,13 +153,24 @@ export default function InputField() {
           <option value={"2000"}>2000</option>
           <option value={"1999"}>1999</option>
         </RegSearch>
-        <TypeSearch title={"select transmition"}>
+        <TypeSearch
+          title={"select transmition"}
+          onChange={(e) => {
+            if (e.target.value !== "Transmition-") {
+              setTrans(e.target.value);
+            }
+          }}
+        >
           <option>Transmition-</option>
           <option value={"automatic"}>Automatic</option>
           <option value={"manual"}>Manual</option>
         </TypeSearch>
       </SearchBarOutline>
-      <InputSearchButton type={"submit"}></InputSearchButton>
+      <Link
+        href={`https://a-star-cars-website.vercel.app/cars/search?name=${Name}&trans=${Trans}&reg=${Reg}`}
+      >
+        <InputSearchButton type={"submit"}></InputSearchButton>
+      </Link>
     </InputForm>
   );
 }
