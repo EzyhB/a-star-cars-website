@@ -241,7 +241,7 @@ const Home = ({ latestCars }: Propss) => {
         </Typography>
         <div className={css.footerPadding}>
           <ButtonHollow size="xl">
-            <Link href={"/car/1"}>
+            <Link href={"/cars"}>
               <Typography variant="h6" center="yes">
                 See all cars
               </Typography>
