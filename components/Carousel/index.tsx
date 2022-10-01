@@ -25,63 +25,36 @@ interface Props {
   images: Images;
 }
 
-const ImageDefaultState = {
-  id: "radomIDGen2000",
-  image1:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647229191397456/unknown.png",
-  image2:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647267795775558/unknown.png",
-  image3:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647288389800047/unknown.png",
-  image4:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647322187513966/unknown.png",
-  image5:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647352248090815/unknown.png",
-  image6:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647380471558174/unknown.png",
-  image7:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647412264374433/unknown.png",
-  image8:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647441142153308/unknown.png",
-  image9:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647465934688376/unknown.png",
-  image10:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647490374905967/unknown.png",
-  image11:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647513175134279/unknown.png",
-  image12:
-    "https://cdn.discordapp.com/attachments/786789211315109927/1023647542686257193/unknown.png",
-};
-
 export default function Carousel({ images }: Props) {
   const [mainImage, setMainImage] = useState(images["image1"]);
-  const [AllImages, setAllImages] = useState<Images>(ImageDefaultState);
   const [carouselNav, setCarouselNav] = useState(1);
   const [NavImage1, setNavImage1] = useState(mainImage[carouselNav - 1]);
   const [NavImage2, setNavImage2] = useState(mainImage[carouselNav]);
   const [NavImage3, setNavImage3] = useState(mainImage[carouselNav + 1]);
 
   useEffect(() => {
-    setMainImage(images["image1"]);
-    setAllImages(images);
-
-    console.log("Carousel Images", images);
+    setMainImage(Object.values(images)[1]);
+    setNavImage1(Object.values(images)[1]);
+    setNavImage2(Object.values(images)[2]);
+    setNavImage3(Object.values(images)[3]);
   }, [images]);
-
-  let nav0 = ("image" + carouselNav.toString()) as keyof typeof images;
-  let nav1 = ("image" + (carouselNav + 1).toString()) as keyof typeof images;
-  let nav2 = ("image" + (carouselNav + 2).toString()) as keyof typeof images;
 
   const handleNavButtonClick = (operation: string) => {
     if (operation == "add") {
       if (carouselNav == 10) {
         return;
       }
+      setNavImage1(Object.values(images)[carouselNav + 1]);
+      setNavImage2(Object.values(images)[carouselNav + 2]);
+      setNavImage3(Object.values(images)[carouselNav + 3]);
       setCarouselNav(carouselNav + 1);
     } else {
       if (carouselNav == 1) {
         return;
       }
+      setNavImage1(Object.values(images)[carouselNav]);
+      setNavImage2(Object.values(images)[carouselNav + 1]);
+      setNavImage3(Object.values(images)[carouselNav + 2]);
       setCarouselNav(carouselNav - 1);
     }
   };
