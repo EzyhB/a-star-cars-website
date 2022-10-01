@@ -47,6 +47,7 @@ const MenuAnchor = styled.a`
   align-items: center;
   justify-content: center;
   transition: filter 300ms;
+  box-shadow: 1px 1px 0 0 hsla(0, 0%, 100%, 0.5), 0 1px 3px 0 #555a64;
 
   &:hover {
     background-color: ${(props) => props.theme.pallette.primary};
