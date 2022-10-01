@@ -57,6 +57,9 @@ export default function Carousel({ images }: Props) {
   const [mainImage, setMainImage] = useState(images["image1"]);
   const [AllImages, setAllImages] = useState<Images>(ImageDefaultState);
   const [carouselNav, setCarouselNav] = useState(1);
+  const [NavImage1, setNavImage1] = useState(mainImage[carouselNav - 1]);
+  const [NavImage2, setNavImage2] = useState(mainImage[carouselNav]);
+  const [NavImage3, setNavImage3] = useState(mainImage[carouselNav + 1]);
 
   useEffect(() => {
     setMainImage(images["image1"]);
@@ -111,10 +114,10 @@ export default function Carousel({ images }: Props) {
             >
               <div>
                 <img
-                  src={AllImages[nav0]}
+                  src={NavImage1}
                   alt="A-Star Car Sales car image"
                   className={css.carouselNavImage}
-                  onClick={() => setMainImage(AllImages[nav0])}
+                  onClick={() => setMainImage(NavImage1)}
                 />
               </div>
             </GridItem>
@@ -126,10 +129,10 @@ export default function Carousel({ images }: Props) {
             >
               <div>
                 <img
-                  src={AllImages[nav1]}
+                  src={NavImage2}
                   alt="A-Star Car Sales car image"
                   className={css.carouselNavImage}
-                  onClick={() => setMainImage(AllImages[nav1])}
+                  onClick={() => setMainImage(NavImage2)}
                 />
               </div>
             </GridItem>
@@ -141,10 +144,10 @@ export default function Carousel({ images }: Props) {
             >
               <div>
                 <img
-                  src={AllImages[nav2]}
+                  src={NavImage3}
                   alt="A-Star Car Sales car image"
                   className={css.carouselNavImage}
-                  onClick={() => setMainImage(AllImages[nav2])}
+                  onClick={() => setMainImage(NavImage3)}
                 />
               </div>
             </GridItem>
@@ -172,20 +175,20 @@ export default function Carousel({ images }: Props) {
           <GridItem xs="six" className={css.carouselNavGridItem} center="yes">
             <div>
               <img
-                src={AllImages[nav0]}
+                src={NavImage1}
                 alt="A-Star Car Sales car image"
                 className={css.carouselNavImage}
-                onClick={() => setMainImage(AllImages[nav0])}
+                onClick={() => setMainImage(NavImage1)}
               />
             </div>
           </GridItem>
           <GridItem xs="six" className={css.carouselNavGridItem} center="yes">
             <div>
               <img
-                src={AllImages[nav1]}
+                src={NavImage2}
                 alt="A-Star Car Sales car image"
                 className={css.carouselNavImage}
-                onClick={() => setMainImage(AllImages[nav1])}
+                onClick={() => setMainImage(NavImage2)}
               />
             </div>
           </GridItem>
