@@ -147,8 +147,8 @@ const Home = ({ latestCars }: Propss) => {
         <InputField></InputField>
       </Container>
       <GridContainer className={css.featureGrid}>
-        <GridItem md="four" sm="six">
-          <Typography className={css.featureText} center="yes">
+        <GridItem md="four" sm="six" className={css.featureTextGap}>
+          <Typography className={css.featureText} center="yes" variant="h6">
             Great Value
           </Typography>
           <Container className={css.featureImageContainer}>
@@ -165,8 +165,8 @@ const Home = ({ latestCars }: Propss) => {
             whatever your budget.
           </Typography>
         </GridItem>
-        <GridItem md="four" sm="six">
-          <Typography className={css.featureText} center="yes">
+        <GridItem md="four" sm="six" className={css.featureTextGap}>
+          <Typography className={css.featureText} center="yes" variant="h6">
             High-Quality Used Cars
           </Typography>
           <Container className={css.featureImageContainer}>
@@ -182,8 +182,8 @@ const Home = ({ latestCars }: Propss) => {
             comes guaranteed.
           </Typography>
         </GridItem>
-        <GridItem md="four" sm="six">
-          <Typography className={css.featureText} center="yes">
+        <GridItem md="four" sm="six" className={css.featureTextGap}>
+          <Typography className={css.featureText} center="yes" variant="h6">
             Flexible Finance Options
           </Typography>
           <Container className={css.featureImageContainer}>

@@ -18,6 +18,10 @@
   justify-content: center;
 }
 
+.featureTextGap {
+  margin: 2rem 0;
+}
+
 .featureGrid {
   margin-top: 6rem;
 }
