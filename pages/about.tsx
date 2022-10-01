@@ -27,7 +27,7 @@ export default function about() {
                   home delivery or collection in as little as 72 hours, any day
                   of the week.
                 </Typography>
-                <ButtonHollow>Shop now</ButtonHollow>
+                {/* <ButtonHollow>Shop now</ButtonHollow> */}
               </div>
             </GridItem>
           </GridContainer>
@@ -48,7 +48,7 @@ export default function about() {
                   choose from monthly payment options to suit you and we’ll give
                   you a decision within minutes.
                 </Typography>
-                <ButtonHollow>Shop now</ButtonHollow>
+                {/* <ButtonHollow>Shop now</ButtonHollow> */}
               </div>
             </GridItem>
           </GridContainer>
@@ -71,7 +71,7 @@ export default function about() {
                   and give you an instant, online valuation that’s guaranteed
                   for 7 days. We’ll even pick it up from your door if you like.
                 </Typography>
-                <ButtonHollow>Shop now</ButtonHollow>
+                {/* <ButtonHollow>Shop now</ButtonHollow> */}
               </div>
             </GridItem>
           </GridContainer>
