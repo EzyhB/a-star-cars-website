@@ -52,9 +52,9 @@ export default function Carousel({ images }: Props) {
       if (carouselNav == 1) {
         return;
       }
-      setNavImage1(Object.values(images)[carouselNav]);
-      setNavImage2(Object.values(images)[carouselNav + 1]);
-      setNavImage3(Object.values(images)[carouselNav + 2]);
+      setNavImage1(Object.values(images)[carouselNav - 1]);
+      setNavImage2(Object.values(images)[carouselNav]);
+      setNavImage3(Object.values(images)[carouselNav + 1]);
       setCarouselNav(carouselNav - 1);
     }
   };
