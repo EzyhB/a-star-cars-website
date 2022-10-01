@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import CarDiscplayCard from "../components/CarDisplayCard";
-import { Container } from "../components/styles/Container";
-import { GridContainer } from "../components/styles/GridContainer";
-import { GridItem } from "../components/styles/GridItem";
-import InputField from "../components/styles/InputField";
-import { Typography } from "../components/styles/Typography";
-import css from "../styles/cars.module.css";
-import Footer from "../components/Footer";
-import { Car } from ".";
+import React from "react";
+import CarDiscplayCard from "../../components/CarDisplayCard";
+import { Container } from "../../components/styles/Container";
+import { GridContainer } from "../../components/styles/GridContainer";
+import { GridItem } from "../../components/styles/GridItem";
+import InputField from "../../components/styles/InputField";
+import { Typography } from "../../components/styles/Typography";
+import css from "../../styles/cars.module.css";
+import Footer from "../../components/Footer";
+import { Car } from "..";
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
