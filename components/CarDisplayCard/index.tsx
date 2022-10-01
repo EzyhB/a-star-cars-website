@@ -58,7 +58,7 @@ export default function CarDiscplayCard({
           </Typography>
         </div>
         <div className={css.buttonContainer}>
-          <Link href={`https://a-star-cars-website.vercel.app/car/${carId}`}>
+          <Link href={`/car/${carId}`}>
             <ButtonHollow className={css.button} size="xl">
               <Typography center="yes">View this car</Typography>
             </ButtonHollow>
