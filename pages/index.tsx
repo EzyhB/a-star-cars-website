@@ -13,6 +13,7 @@ import { GetServerSidePropsContext } from "next";
 import ButtonHollow from "../components/styles/ButtonHollow";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import Head from "next/head";
 
 export interface Car {
   id: string;
@@ -142,6 +143,14 @@ const Home = ({ latestCars }: Propss) => {
       className={css.bgContainer}
       background="background"
     >
+      <Head>
+        <title>A Star Car Sales The Best Autotrader In Birmingham</title>
+        <meta
+          name="description"
+          content="A Star Car Sales A Star Car Sales, Birmingham's leading independent car trader, offers a wide range of cars for sale including popular makes such as Mercedes-Benz, BMW, Audi and Volkswagen. A Star Car Sales is the best place to buy a pre-owned car"
+        ></meta>
+      </Head>
+
       <Container maxWidth="md" className={css.searchBarPadding}></Container>
       <Container maxWidth="md" className={css.searchBar}>
         <InputField></InputField>

@@ -8,10 +8,18 @@ import css from "../styles/faq.module.css";
 import faqDB from "../tempData/faqDB";
 import FAQcard from "../components/FAQcard";
 import Footer from "../components/Footer";
+import Head from "next/head";
 
 export default function faq() {
   return (
     <Container maxWidth="xl">
+      <Head>
+        <title>A Star Car Sales FAQ</title>
+        <meta
+          name="descrion"
+          content="As one of the most trusted auto traders in the United Kingdom, we offer a wide range of services to help you find your next car. Our FAQs will answer all of your questions, plus you can request a call back from one of our team"
+        ></meta>
+      </Head>
       <Container
         maxWidth="xl"
         background="primary"
