@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import Footer from "../components/Footer";
 import ButtonHollow from "../components/styles/ButtonHollow";
@@ -10,6 +11,13 @@ import css from "../styles/about.module.css";
 export default function about() {
   return (
     <Container maxWidth="xl">
+      <Head>
+        <title>A Star Car Sales About</title>
+        <meta
+          name="description"
+          content="Delivering a wide and varied range of high-quality second-hand cars to customers across the UK, A Star Car Sales are an established company that you can depend on. Contact us today for more information."
+        />
+      </Head>
       <Container maxWidth="xl" background="primary" className={css.aboutBody}>
         <Container maxWidth="md" className={css.aboutGridContainer}>
           <GridContainer>

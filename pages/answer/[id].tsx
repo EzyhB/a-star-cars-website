@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
@@ -39,6 +40,13 @@ export default function FAQAnswer() {
 
   return (
     <Container maxWidth="md">
+      <Head>
+        <title>{faqDB[id].question}</title>
+        <meta
+          name="description"
+          content="We don't just sell cars. We will help you finance, insure, and maintain your vehicle. Call A Star Car Sales today to go over all the options available to you."
+        />
+      </Head>
       <Container className={css.topContainerSpacing} background="primary">
         <Typography variant="h4">{faqDB[id].question}</Typography>
       </Container>

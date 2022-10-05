@@ -8,6 +8,7 @@ import { Typography } from "../../components/styles/Typography";
 import css from "../../styles/cars.module.css";
 import Footer from "../../components/Footer";
 import { Car } from "..";
+import Head from "next/head";
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
@@ -21,6 +22,13 @@ interface Propss {
 export default function Cars({ Cars, RecommendedCars }: Propss) {
   return (
     <Container maxWidth="xl">
+      <Head>
+        <title>A Star Car Sales All Cars</title>
+        <meta
+          name="description"
+          content="A Star Car Sales is a family owned business that offers vehicles for sale. We have small, affordable cars and large SUVs. We also offer car rentals for longer periods of time."
+        />
+      </Head>
       <div>
         <Typography variant="h4" className={css.carsHeader} center="yes">
           We make buying cars easy &#38; simple

@@ -13,6 +13,7 @@ import { ParsedUrlQuery } from "querystring";
 import { Car as Carr, FetchImage } from "..";
 
 import css from "./Car.module.css";
+import Head from "next/head";
 
 export interface Params extends ParsedUrlQuery {
   id: string;
@@ -24,8 +25,13 @@ interface propss {
 }
 
 export default function Car({ carz, image }: propss) {
+  const metaContent = `You can get the best price ${carz.name}, ${carz.sub_name}. We sell cars for all brands in the country. We are the best place to buy your dream car at affordable price.`;
   return (
     <Container>
+      <Head>
+        <title>{carz.name} for sale at A Star Car Sales</title>
+        <meta name="description" content={metaContent} />
+      </Head>
       <Container padding="no" className={css.topMargin}>
         <GridContainer>
           <GridItem lg="eight" md="seven">
