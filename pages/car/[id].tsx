@@ -26,6 +26,10 @@ interface propss {
 
 export default function Car({ carz, image }: propss) {
   const metaContent = `You can get the best price ${carz.name}, ${carz.sub_name}. We sell cars for all brands in the country. We are the best place to buy your dream car at affordable price.`;
+
+  const handleContactUsClick = () => {
+    alert("Please call or message us on Whatsapp +44 0746 583 2323");
+  };
   return (
     <Container>
       <Head>
@@ -69,7 +73,12 @@ export default function Car({ carz, image }: propss) {
                 </div>
                 <Typography variant="h6">Plus £14.99 admin fees</Typography>
                 <div className={css.actionButton}>
-                  <ButtonHollow size="xl">Contact us</ButtonHollow>
+                  <ButtonHollow
+                    size="xl"
+                    onClick={() => handleContactUsClick()}
+                  >
+                    Contact us
+                  </ButtonHollow>
                 </div>
               </Container>
             </div>
