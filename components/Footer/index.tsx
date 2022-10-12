@@ -8,7 +8,7 @@ import css from "./footer.module.css";
 
 export default function Footer() {
   const handleWhatsappClick = () => {
-    alert("Call us on Whatsapp +44 0746 583 2323");
+    alert("Please Whatsapp us on +44 0746 583 2323");
   };
   return (
     <Container maxWidth="xl">

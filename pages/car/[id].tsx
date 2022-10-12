@@ -28,7 +28,7 @@ export default function Car({ carz, image }: propss) {
   const metaContent = `You can get the best price ${carz.name}, ${carz.sub_name}. We sell cars for all brands in the country. We are the best place to buy your dream car at affordable price.`;
 
   const handleContactUsClick = () => {
-    alert("Please call or message us on Whatsapp +44 0746 583 2323");
+    alert("Please Whatsapp us on +44 0746 583 2323");
   };
   return (
     <Container>

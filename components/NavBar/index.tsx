@@ -6,8 +6,6 @@ import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
 
-
-
 import css from "./NavBar.module.css";
 
 interface Props {
@@ -74,9 +72,11 @@ export default function NavBar({ isLight, setIsLight }: Props) {
           xs="three"
         >
           <DropdownMenu setIsLight={setIsLight} isLight={isLight} justify="end">
-            <Link href={"/about"}>
-              <DropdownItem>Contact Us</DropdownItem>
-            </Link>
+            <DropdownItem
+              onClick={() => alert("Please Whatsapp us on +44 0746 583 2323")}
+            >
+              Contact Us
+            </DropdownItem>
 
             <DropdownItem onClick={() => setIsLight(!isLight)}>
               Theme
