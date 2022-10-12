@@ -23,12 +23,18 @@ export default function Footer() {
       <Container maxWidth="sm">
         <GridContainer>
           <GridItem xs="four" className={css.gridCenter} center="yes">
-            <Link href={"https://www.instagram.com/astarcarsales_ltd/"}>
+            <Link
+              target={"_blank"}
+              href={"https://www.instagram.com/astarcarsales_ltd/"}
+            >
               <img src="/images/a-star-car-sales-instagram-icon.png" />
             </Link>
           </GridItem>
           <GridItem xs="four" className={css.gridCenter} center="yes">
-            <Link href={"https://www.facebook.com/astarcarsalesltd"}>
+            <Link
+              target={"_blank"}
+              href={"https://www.facebook.com/astarcarsalesltd"}
+            >
               <img src="/images/a-star-car-sales-facebook-icon.png" />
             </Link>
           </GridItem>
