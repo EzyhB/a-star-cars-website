@@ -53,6 +53,34 @@ export interface FetchImage {
   image10: string;
   image11: string;
   image12: string;
+  image13: string;
+  image14: string;
+  image15: string;
+  image16: string;
+  image17: string;
+  image18: string;
+  image19: string;
+  image20: string;
+  image21: string;
+  image22: string;
+  image23: string;
+  image24: string;
+  image25: string;
+  image26: string;
+  image27: string;
+  image28: string;
+  image29: string;
+  image30: string;
+  image31: string;
+  image32: string;
+  image33: string;
+  image34: string;
+  image35: string;
+  image36: string;
+  image37: string;
+  image38: string;
+  image39: string;
+  image40: string;
 }
 
 type Cars = Car[];

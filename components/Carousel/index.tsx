@@ -3,23 +3,9 @@ import { Container } from "../styles/Container";
 import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import { FetchImage as Images } from "../../pages";
 
 import css from "./Carousel.module.css";
-
-interface Images {
-  image1: string;
-  image2: string;
-  image3: string;
-  image4: string;
-  image5: string;
-  image6: string;
-  image7: string;
-  image8: string;
-  image9: string;
-  image10: string;
-  image11: string;
-  image12: string;
-}
 
 interface Props {
   images: Images;
@@ -41,7 +27,7 @@ export default function Carousel({ images }: Props) {
 
   const handleNavButtonClick = (operation: string) => {
     if (operation == "add") {
-      if (carouselNav == 10) {
+      if (carouselNav == 38) {
         return;
       }
       setNavImage1(Object.values(images)[carouselNav + 1]);
