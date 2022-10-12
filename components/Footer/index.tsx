@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Container } from "../styles/Container";
 import { GridContainer } from "../styles/GridContainer";
@@ -6,6 +7,9 @@ import { Typography } from "../styles/Typography";
 import css from "./footer.module.css";
 
 export default function Footer() {
+  const handleWhatsappClick = () => {
+    alert("Call us on Whatsapp +44 0746 583 2323");
+  };
   return (
     <Container maxWidth="xl">
       <div className={css.paddingDiv}>
@@ -19,13 +23,20 @@ export default function Footer() {
       <Container maxWidth="sm">
         <GridContainer>
           <GridItem xs="four" className={css.gridCenter} center="yes">
-            <img src="/images/a-star-car-sales-instagram-icon.png" />
+            <Link href={"https://www.instagram.com/astarcarsales_ltd/"}>
+              <img src="/images/a-star-car-sales-instagram-icon.png" />
+            </Link>
           </GridItem>
           <GridItem xs="four" className={css.gridCenter} center="yes">
-            <img src="/images/a-star-car-sales-facebook-icon.png" />
+            <Link href={"https://www.facebook.com/astarcarsalesltd"}>
+              <img src="/images/a-star-car-sales-facebook-icon.png" />
+            </Link>
           </GridItem>
           <GridItem xs="four" className={css.gridCenter} center="yes">
-            <img src="/images/a-star-car-sales-whatsapp-icon.png" />
+            <img
+              src="/images/a-star-car-sales-whatsapp-icon.png"
+              onClick={() => handleWhatsappClick()}
+            />
           </GridItem>
         </GridContainer>
       </Container>
