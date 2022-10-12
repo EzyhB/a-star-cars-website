@@ -33,7 +33,7 @@ export default function faq() {
         </Typography>
         <Typography>
           We’re here to help 7 days a week from 8am-8pm. You can chat to us,
-          WhatsApp us on 07984 395 125 or call 020 3901 3488.
+          WhatsApp us on +44 0746 583 2323.
         </Typography>
       </Container>
       <Container maxWidth="xl">
