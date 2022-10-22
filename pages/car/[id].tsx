@@ -46,14 +46,14 @@ export default function Car({ carz, image }: propss) {
             <div className={css.carPaymentInfoCard}>
               <div className={css.divWidth}>
                 <Typography variant="h5">{carz.name}</Typography>
-              </div>
+                <Typography variant="body2">{carz.sub_name}</Typography>
 
-              <Typography variant="body2">{carz.sub_name}</Typography>
-              <div className={css.shortSpecs}>
-                <CarSpecs miles={carz.miles} />
-                <CarSpecs reg={carz.reg} />
-                <CarSpecs trans={carz.trans} />
-                <CarSpecs fuel={carz.fuel} />
+                <div className={css.shortSpecs}>
+                  <CarSpecs miles={carz.miles} />
+                  <CarSpecs reg={carz.reg} />
+                  <CarSpecs trans={carz.trans} />
+                  <CarSpecs fuel={carz.fuel} />
+                </div>
               </div>
               <Container
                 className={css.carPaymentActionCard}

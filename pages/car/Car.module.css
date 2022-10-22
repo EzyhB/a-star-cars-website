@@ -10,22 +10,20 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  background: pink;
+  row-gap: 2.5rem;
 }
 
 .divWidth {
   width: 100%;
 }
 
-.flexContainer > * {
-  margin: 2em 0;
-}
 .topMargin {
   margin: 5rem 0 0 0;
 }
 
 .shortSpecs {
   margin: 0.8rem 0;
+  width: 100%;
 }
 
 .carPaymentActionCard {
@@ -65,5 +63,9 @@
   }
   .specsGrid2 {
     padding: 2rem 0rem 2rem 0rem;
+  }
+
+  .carPaymentInfoCard {
+    row-gap: 1rem;
   }
 }
