@@ -14,6 +14,7 @@ import { Car as Carr, FetchImage } from "..";
 
 import css from "./Car.module.css";
 import Head from "next/head";
+import RoundNumbers from "../../components/styles/RoundNumbers";
 
 export interface Params extends ParsedUrlQuery {
   id: string;
@@ -43,8 +44,11 @@ export default function Car({ carz, image }: propss) {
           </GridItem>
           <GridItem lg="four" md="five" className={css.carPaymentInfoGrid}>
             <div className={css.carPaymentInfoCard}>
-              <Typography variant="h6">{carz.name}</Typography>
-              <Typography>{carz.sub_name}</Typography>
+              <div className={css.divWidth}>
+                <Typography variant="h5">{carz.name}</Typography>
+              </div>
+
+              <Typography variant="body2">{carz.sub_name}</Typography>
               <div className={css.shortSpecs}>
                 <CarSpecs miles={carz.miles} />
                 <CarSpecs reg={carz.reg} />
@@ -91,7 +95,7 @@ export default function Car({ carz, image }: propss) {
         </Typography>
         <GridContainer>
           <GridItem lg="three" md="six">
-            1
+            <RoundNumbers number={1} />
             <Typography variant="h6" center="yes">
               Find your perfect car
             </Typography>
@@ -100,7 +104,7 @@ export default function Car({ carz, image }: propss) {
             </Typography>
           </GridItem>
           <GridItem lg="three" md="six">
-            2
+            <RoundNumbers number={2} />
             <Typography variant="h6" center="yes">
               Choose how to pay
             </Typography>
@@ -109,7 +113,7 @@ export default function Car({ carz, image }: propss) {
             </Typography>
           </GridItem>
           <GridItem lg="three" md="six">
-            3
+            <RoundNumbers number={3} />
             <Typography variant="h6" center="yes">
               Delivery or collection
             </Typography>
@@ -119,7 +123,7 @@ export default function Car({ carz, image }: propss) {
             </Typography>
           </GridItem>
           <GridItem lg="three" md="six">
-            4
+            <RoundNumbers number={4} />
             <Typography variant="h6" center="yes">
               7 days to decide
             </Typography>

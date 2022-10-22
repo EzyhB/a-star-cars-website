@@ -1,7 +1,24 @@
-.carPaymentInfoGrid {
+/* .carPaymentInfoGrid {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: pink;
+} */
+.carPaymentInfoCard {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: pink;
 }
 
-.carPaymentInfoCard {
+.divWidth {
+  width: 100%;
+}
+
+.flexContainer > * {
+  margin: 2em 0;
 }
 .topMargin {
   margin: 5rem 0 0 0;

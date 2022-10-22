@@ -4,6 +4,7 @@ export const lightTheme = {
   pallette: {
     primary: "#A7DBAB",
     secondary: "rgb(5, 153, 47)",
+    // background: "#e9ebe6",
     background: "rgba(236, 246, 223, 1)",
     text: "#28293E",
     textLight: "rgba(234, 234, 234, 1)",
