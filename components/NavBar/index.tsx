@@ -95,6 +95,9 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <DropdownItem>About</DropdownItem>
               </Link>
             </div>
+            <Link href="/api/auth/login">
+              <DropdownItem>Login/Admin</DropdownItem>
+            </Link>
           </DropdownMenu>
         </GridItem>
       </GridContainer>
