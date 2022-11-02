@@ -1,5 +1,7 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider, useTheme } from "styled-components";
+import { UserProvider } from "@auth0/nextjs-auth0";
+
 import GlobalStyles from "../components/styles/Theme/GlobalStyle.css";
 import { lightTheme, darkTheme } from "../components/styles/Theme";
 import { useState } from "react";
@@ -13,8 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyles />
 
       <NavBar isLight={isLight} setIsLight={setIsLight} />
-
-      <Component {...pageProps} />
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
     </ThemeProvider>
   );
 }
