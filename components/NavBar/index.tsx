@@ -5,6 +5,7 @@ import { DropdownItem, DropdownMenu } from "../styles/DropdownMenu";
 import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
+import { useUser } from "@auth0/nextjs-auth0";
 
 import css from "./NavBar.module.css";
 
@@ -14,7 +15,8 @@ interface Props {
 }
 
 export default function NavBar({ isLight, setIsLight }: Props) {
-  let themeSwitchBackground = isLight ? "#28293E" : "#ffffff";
+  const { user, error, isLoading } = useUser();
+
   return (
     <Container maxWidth="none">
       <GridContainer>
@@ -95,9 +97,15 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <DropdownItem>About</DropdownItem>
               </Link>
             </div>
-            <Link href="/api/auth/login">
-              <DropdownItem>Login/Admin</DropdownItem>
-            </Link>
+            {user ? (
+              <Link href="/api/auth/login">
+                <DropdownItem>Login/Admin</DropdownItem>
+              </Link>
+            ) : (
+              <Link href={"/api/auth/logout"}>
+                <DropdownItem>Logout</DropdownItem>
+              </Link>
+            )}
           </DropdownMenu>
         </GridItem>
       </GridContainer>
