@@ -16,8 +16,12 @@ interface Props {
 
 export default function NavBar({ isLight, setIsLight }: Props) {
   const { user, isLoading } = useUser();
-  if (isLoading) return <div>is loading ....</div>;
-  console.log(user?.org_id);
+
+  let userID = user?.org_id;
+  while (!userID) {
+    userID = user?.org_id;
+    console.log(userID);
+  }
 
   return (
     <Container maxWidth="none">
