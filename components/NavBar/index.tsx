@@ -99,12 +99,12 @@ export default function NavBar({ isLight, setIsLight }: Props) {
               </Link>
             </div>
             {user ? (
-              <Link href="/api/auth/login">
-                <DropdownItem>Login/Admin</DropdownItem>
-              </Link>
-            ) : (
               <Link href={"/api/auth/logout"}>
                 <DropdownItem>Logout</DropdownItem>
+              </Link>
+            ) : (
+              <Link href="/api/auth/login">
+                <DropdownItem>Login/Admin</DropdownItem>
               </Link>
             )}
           </DropdownMenu>
