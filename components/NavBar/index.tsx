@@ -18,13 +18,11 @@ export default function NavBar({ isLight, setIsLight }: Props) {
   const { user, isLoading } = useUser();
   if (isLoading) return <div>Loading...</div>;
 
-  let authenticated = false;
+  let authorised = false;
 
   if (user) {
     console.log(user);
-
-    authenticated =
-      user?.sub == process.env.Admin || user?.sub == process.env.Ezyh;
+    authorised = user.sub == process.env.Admin || user.sub == process.env.Ezyh;
   }
 
   return (
@@ -118,12 +116,12 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <DropdownItem>Login/Admin</DropdownItem>
               </Link>
             )}
-            {authenticated ? (
+            {authorised ? (
               <Link href={"/add-car"}>
                 <DropdownItem>Add Cars</DropdownItem>
               </Link>
             ) : (
-              <></>
+              <div>Admin-Required</div>
             )}
           </DropdownMenu>
         </GridItem>
