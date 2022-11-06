@@ -15,7 +15,9 @@ interface Props {
 }
 
 export default function NavBar({ isLight, setIsLight }: Props) {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
+  if (isLoading) return <div>is loading ....</div>;
+  console.log(user?.org_id);
 
   return (
     <Container maxWidth="none">
@@ -102,7 +104,6 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <Link href={"/api/auth/logout"}>
                   <DropdownItem>Logout</DropdownItem>
                 </Link>
-                <DropdownItem>{user.org_id}</DropdownItem>
               </div>
             ) : (
               <Link href="/api/auth/login">
