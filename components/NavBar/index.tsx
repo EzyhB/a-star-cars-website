@@ -15,9 +15,15 @@ interface Props {
 }
 
 export default function NavBar({ isLight, setIsLight }: Props) {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
+  if (isLoading) return <div>Loading...</div>;
 
-  console.log(user);
+  let authenticated = false;
+
+  if (user) {
+    authenticated =
+      user?.sub == process.env.Admin || user?.sub == process.env.Ezyh;
+  }
 
   return (
     <Container maxWidth="none">
@@ -109,6 +115,13 @@ export default function NavBar({ isLight, setIsLight }: Props) {
               <Link href="/api/auth/login">
                 <DropdownItem>Login/Admin</DropdownItem>
               </Link>
+            )}
+            {authenticated ? (
+              <Link href={"/add-car"}>
+                <DropdownItem>Add Cars</DropdownItem>
+              </Link>
+            ) : (
+              <></>
             )}
           </DropdownMenu>
         </GridItem>
