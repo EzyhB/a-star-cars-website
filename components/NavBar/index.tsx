@@ -21,6 +21,8 @@ export default function NavBar({ isLight, setIsLight }: Props) {
   let authenticated = false;
 
   if (user) {
+    console.log(user);
+
     authenticated =
       user?.sub == process.env.Admin || user?.sub == process.env.Ezyh;
   }
