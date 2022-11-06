@@ -13,9 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
       <GlobalStyles />
-
-      <NavBar isLight={isLight} setIsLight={setIsLight} />
       <UserProvider>
+        <NavBar isLight={isLight} setIsLight={setIsLight} />
+
         <Component {...pageProps} />
       </UserProvider>
     </ThemeProvider>
