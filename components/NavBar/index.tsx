@@ -16,6 +16,7 @@ interface Props {
 
 export default function NavBar({ isLight, setIsLight }: Props) {
   const { user, error, isLoading } = useUser();
+  console.log(user?.org_id);
 
   return (
     <Container maxWidth="none">
