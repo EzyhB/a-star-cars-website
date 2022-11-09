@@ -143,66 +143,84 @@ export default function AddCar() {
         <div onSubmit={(e) => handleSubmit(e)}>
           <form className={css.addCarForum}>
             <BasicInput type="text" placeholder="car name"></BasicInput>
-            <input type="text" placeholder="car sub name"></input>
-            <input type="text" placeholder="price"></input>
-            <input type="text" placeholder="miles"></input>
-            <input type="text" placeholder="registration year"></input>
-            <input
+            <BasicInput type="text" placeholder="car sub name"></BasicInput>
+            <BasicInput type="text" placeholder="price"></BasicInput>
+            <BasicInput type="text" placeholder="miles"></BasicInput>
+            <BasicInput
+              type="text"
+              placeholder="registration year"
+            ></BasicInput>
+            <BasicInput
               type="text"
               placeholder="transition(manual/automatic)"
-            ></input>
-            <input type="text" placeholder="Fuel type(petrol/electric)"></input>
-            <input type="text" placeholder="seats"></input>
-            <input type="text" placeholder="engine size(0 if electric)"></input>
-            <input type="text" placeholder="body type"></input>
-            <input type="text" placeholder="exterior colour"></input>
-            <input type="text" placeholder="drive type"></input>
-            <input type="text" placeholder="registration number"></input>
-            <input type="text" placeholder="number of previous owners"></input>
-            <input type="text" placeholder="number of keys"></input>
-            <input type="text" placeholder="top speed (MPH)"></input>
-            <input type="text" placeholder="acceleration (0-60)"></input>
-            <input type="text" placeholder="power (BHP)"></input>
-            <input type="text" placeholder="image 1 (URL)"></input>
-            <input type="text" placeholder="image 2 (URL)"></input>
-            <input type="text" placeholder="image 3 (URL)"></input>
-            <input type="text" placeholder="image 4 (URL)"></input>
-            <input type="text" placeholder="image 5 (URL)"></input>
-            <input type="text" placeholder="image 6 (URL)"></input>
-            <input type="text" placeholder="image 7 (URL)"></input>
-            <input type="text" placeholder="image 8 (URL)"></input>
-            <input type="text" placeholder="image 9 (URL)"></input>
-            <input type="text" placeholder="image 10 (URL)"></input>
-            <input type="text" placeholder="image 11 (URL)"></input>
-            <input type="text" placeholder="image 12 (URL)"></input>
-            <input type="text" placeholder="image 13 (URL)"></input>
-            <input type="text" placeholder="image 14 (URL)"></input>
-            <input type="text" placeholder="image 15 (URL)"></input>
-            <input type="text" placeholder="image 16 (URL)"></input>
-            <input type="text" placeholder="image 17 (URL)"></input>
-            <input type="text" placeholder="image 18 (URL)"></input>
-            <input type="text" placeholder="image 19 (URL)"></input>
-            <input type="text" placeholder="image 20 (URL)"></input>
-            <input type="text" placeholder="image 21 (URL)"></input>
-            <input type="text" placeholder="image 22 (URL)"></input>
-            <input type="text" placeholder="image 23 (URL)"></input>
-            <input type="text" placeholder="image 24 (URL)"></input>
-            <input type="text" placeholder="image 25 (URL)"></input>
-            <input type="text" placeholder="image 26 (URL)"></input>
-            <input type="text" placeholder="image 27 (URL)"></input>
-            <input type="text" placeholder="image 28 (URL)"></input>
-            <input type="text" placeholder="image 29 (URL)"></input>
-            <input type="text" placeholder="image 30 (URL)"></input>
-            <input type="text" placeholder="image 31 (URL)"></input>
-            <input type="text" placeholder="image 32 (URL)"></input>
-            <input type="text" placeholder="image 33 (URL)"></input>
-            <input type="text" placeholder="image 34 (URL)"></input>
-            <input type="text" placeholder="image 35 (URL)"></input>
-            <input type="text" placeholder="image 36 (URL)"></input>
-            <input type="text" placeholder="image 37 (URL)"></input>
-            <input type="text" placeholder="image 38 (URL)"></input>
-            <input type="text" placeholder="image 39 (URL)"></input>
-            <input type="text" placeholder="image 40 (URL)"></input>
+            ></BasicInput>
+            <BasicInput
+              type="text"
+              placeholder="Fuel type(petrol/electric)"
+            ></BasicInput>
+            <BasicInput type="text" placeholder="seats"></BasicInput>
+            <BasicInput
+              type="text"
+              placeholder="engine size(0 if electric)"
+            ></BasicInput>
+            <BasicInput type="text" placeholder="body type"></BasicInput>
+            <BasicInput type="text" placeholder="exterior colour"></BasicInput>
+            <BasicInput type="text" placeholder="drive type"></BasicInput>
+            <BasicInput
+              type="text"
+              placeholder="registration number"
+            ></BasicInput>
+            <BasicInput
+              type="text"
+              placeholder="number of previous owners"
+            ></BasicInput>
+            <BasicInput type="text" placeholder="number of keys"></BasicInput>
+            <BasicInput type="text" placeholder="top speed (MPH)"></BasicInput>
+            <BasicInput
+              type="text"
+              placeholder="acceleration (0-60)"
+            ></BasicInput>
+            <BasicInput type="text" placeholder="power (BHP)"></BasicInput>
+            <BasicInput type="text" placeholder="image 1 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 2 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 3 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 4 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 5 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 6 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 7 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 8 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 9 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 10 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 11 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 12 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 13 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 14 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 15 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 16 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 17 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 18 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 19 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 20 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 21 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 22 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 23 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 24 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 25 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 26 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 27 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 28 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 29 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 30 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 31 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 32 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 33 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 34 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 35 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 36 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 37 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 38 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 39 (URL)"></BasicInput>
+            <BasicInput type="text" placeholder="image 40 (URL)"></BasicInput>
             <button type="submit">Submit</button>
           </form>
         </div>
