@@ -4,6 +4,7 @@ import { uuid } from "uuidv4";
 
 import css from "../styles/add-car.module.css";
 import BasicInput from "../components/styles/BasicInput";
+import ButtonHollow from "../components/styles/ButtonHollow";
 
 export default function AddCar() {
   const handleSubmit = (event: SyntheticEvent) => {
@@ -221,7 +222,9 @@ export default function AddCar() {
             <BasicInput type="text" placeholder="image 38 (URL)"></BasicInput>
             <BasicInput type="text" placeholder="image 39 (URL)"></BasicInput>
             <BasicInput type="text" placeholder="image 40 (URL)"></BasicInput>
-            <button type="submit">Submit</button>
+            <ButtonHollow size="xl" type="submit">
+              Submit
+            </ButtonHollow>
           </form>
         </div>
       </Container>
