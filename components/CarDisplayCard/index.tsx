@@ -10,7 +10,7 @@ interface props {
   carName: string;
   carImage: string;
   carSubName: string;
-  miles: number;
+  miles: string;
   reg: number;
   trans: string;
   fuel: string;

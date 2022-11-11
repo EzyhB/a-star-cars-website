@@ -26,6 +26,13 @@ interface Propss {
 }
 
 export default function Cars({ RecommendedCars }: Propss) {
+  function numberWithCommas(x: number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   return (
     <Container maxWidth="xl">
       <div>
@@ -55,9 +62,9 @@ export default function Cars({ RecommendedCars }: Propss) {
               carName={el.name}
               carImage={el.image}
               carSubName={el.sub_name}
-              miles={el.miles}
+              miles={numberWithCommas(el.miles)}
               reg={el.reg}
-              trans={el.trans}
+              trans={capitalizeFirstLetter(el.trans)}
               fuel={el.fuel}
               price={el.price}
               carId={el.id}
