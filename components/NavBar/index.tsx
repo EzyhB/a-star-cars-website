@@ -121,7 +121,7 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <DropdownItem>Add Cars</DropdownItem>
               </Link>
             ) : (
-              <></>
+              <>l</>
             )}
           </DropdownMenu>
         </GridItem>
