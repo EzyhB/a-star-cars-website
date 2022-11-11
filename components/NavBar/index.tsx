@@ -116,7 +116,8 @@ export default function NavBar({ isLight, setIsLight }: Props) {
                 <DropdownItem>Login/Admin</DropdownItem>
               </Link>
             )}
-            {user?.sub == process.env.Admin || user?.sub == process.env.Ezyh ? (
+            {user?.sub === process.env.Admin ||
+            user?.sub === process.env.Ezyh ? (
               <Link href={"/add-car"}>
                 <DropdownItem>Add Cars</DropdownItem>
               </Link>
