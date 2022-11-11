@@ -28,6 +28,9 @@ interface propss {
 export default function Car({ carz, image }: propss) {
   const metaContent = `You can get the best price ${carz.name}, ${carz.sub_name}. We sell cars for all brands in the country. We are the best place to buy your dream car at affordable price.`;
 
+  function numberWithCommas(x: number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   const handleContactUsClick = () => {
     alert("Please Whatsapp us on +44 0746 583 2323");
   };
@@ -49,7 +52,7 @@ export default function Car({ carz, image }: propss) {
                 <Typography variant="body2">{carz.sub_name}</Typography>
 
                 <div className={css.shortSpecs}>
-                  <CarSpecs miles={carz.miles} />
+                  <CarSpecs miles={numberWithCommas(carz.miles)} />
                   <CarSpecs reg={carz.reg} />
                   <CarSpecs trans={carz.trans} />
                   <CarSpecs fuel={carz.fuel} />
@@ -139,7 +142,9 @@ export default function Car({ carz, image }: propss) {
           <GridItem md="six" className={css.specsGrid1}>
             <div className={css.carPrice}>
               <Typography>Miles</Typography>
-              <Typography variant="body2">{carz.miles}</Typography>
+              <Typography variant="body2">
+                {numberWithCommas(carz.miles)}
+              </Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Registration</Typography>
@@ -159,7 +164,7 @@ export default function Car({ carz, image }: propss) {
             </div>
             <div className={css.carPrice}>
               <Typography>Engine</Typography>
-              <Typography variant="body2">{carz.engine}</Typography>
+              <Typography variant="body2">{carz.engine}L</Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Body Type</Typography>

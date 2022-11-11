@@ -12,7 +12,7 @@ const SpecBody = styled.div`
 `;
 
 interface Props {
-  miles?: number;
+  miles?: string;
   reg?: number;
   trans?: string;
   fuel?: string;
