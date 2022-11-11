@@ -118,11 +118,11 @@ export default function NavBar({ isLight, setIsLight }: Props) {
             )}
             {user?.sub === process.env.Admin ||
             user?.sub === process.env.Ezyh ? (
-              <></>
-            ) : (
               <Link href={"/add-car"}>
                 <DropdownItem>Add Cars</DropdownItem>
               </Link>
+            ) : (
+              <></>
             )}
           </DropdownMenu>
         </GridItem>
