@@ -31,6 +31,11 @@ export default function Car({ carz, image }: propss) {
   function numberWithCommas(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const handleContactUsClick = () => {
     alert("Please Whatsapp us on +44 0746 583 2323");
   };
@@ -54,8 +59,8 @@ export default function Car({ carz, image }: propss) {
                 <div className={css.shortSpecs}>
                   <CarSpecs miles={numberWithCommas(carz.miles)} />
                   <CarSpecs reg={carz.reg} />
-                  <CarSpecs trans={carz.trans} />
-                  <CarSpecs fuel={carz.fuel} />
+                  <CarSpecs trans={capitalizeFirstLetter(carz.trans)} />
+                  <CarSpecs fuel={capitalizeFirstLetter(carz.fuel)} />
                 </div>
               </div>
               <Container
@@ -152,7 +157,9 @@ export default function Car({ carz, image }: propss) {
             </div>
             <div className={css.carPrice}>
               <Typography>Transmission</Typography>
-              <Typography variant="body2">{carz.trans}</Typography>
+              <Typography variant="body2">
+                {capitalizeFirstLetter(carz.trans)}
+              </Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Seats</Typography>
@@ -160,7 +167,9 @@ export default function Car({ carz, image }: propss) {
             </div>
             <div className={css.carPrice}>
               <Typography>Fuel</Typography>
-              <Typography variant="body2">{carz.fuel}</Typography>
+              <Typography variant="body2">
+                {capitalizeFirstLetter(carz.fuel)}
+              </Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Engine</Typography>
@@ -172,13 +181,17 @@ export default function Car({ carz, image }: propss) {
             </div>
             <div className={css.carPrice}>
               <Typography>Exterior Colour</Typography>
-              <Typography variant="body2">{carz.exterior_color}</Typography>
+              <Typography variant="body2">
+                {capitalizeFirstLetter(carz.exterior_color)}
+              </Typography>
             </div>
           </GridItem>
           <GridItem md="six" className={css.specsGrid2}>
             <div className={css.carPrice}>
               <Typography>Drive Type</Typography>
-              <Typography variant="body2">{carz.drive_type}</Typography>
+              <Typography variant="body2">
+                {capitalizeFirstLetter(carz.drive_type)}
+              </Typography>
             </div>
             <div className={css.carPrice}>
               <Typography>Registration Number</Typography>
