@@ -273,7 +273,7 @@ const Home = ({ latestCars }: Propss) => {
                 miles={numberWithCommas(el.miles)}
                 reg={el.reg}
                 trans={capitalizeFirstLetter(el.trans)}
-                fuel={el.fuel}
+                fuel={capitalizeFirstLetter(el.fuel)}
                 price={el.price}
               ></CarDiscplayCard>
             </GridItem>

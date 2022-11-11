@@ -66,7 +66,7 @@ export default function Cars({ Cars, RecommendedCars }: Propss) {
               miles={numberWithCommas(el.miles)}
               reg={el.reg}
               trans={capitalizeFirstLetter(el.trans)}
-              fuel={el.fuel}
+              fuel={capitalizeFirstLetter(el.fuel)}
               price={el.price}
               carId={el.id}
             ></CarDiscplayCard>
@@ -94,7 +94,7 @@ export default function Cars({ Cars, RecommendedCars }: Propss) {
                 miles={numberWithCommas(el.miles)}
                 reg={el.reg}
                 trans={capitalizeFirstLetter(el.trans)}
-                fuel={el.fuel}
+                fuel={capitalizeFirstLetter(el.fuel)}
                 price={el.price}
                 carId={el.id}
               ></CarDiscplayCard>
