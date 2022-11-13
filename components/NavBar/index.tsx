@@ -6,6 +6,7 @@ import { GridContainer } from "../styles/GridContainer";
 import { GridItem } from "../styles/GridItem";
 import { Typography } from "../styles/Typography";
 import { useUser } from "@auth0/nextjs-auth0";
+import { env } from "process";
 
 import css from "./NavBar.module.css";
 
@@ -22,10 +23,10 @@ export default function NavBar({ isLight, setIsLight }: Props) {
 
   if (user) {
     console.log(user);
-    authorised = user.sub == process.env.Admin || user.sub == process.env.Ezyh;
+    authorised = user.sub == env.Admin || user.sub == env.Ezyh;
     console.log("Authorised", authorised);
-    console.log(process.env.Ezyh);
-    console.log(process.env.Admin);
+    console.log(env.Ezyh);
+    console.log(env.Admin);
   }
 
   return (
