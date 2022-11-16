@@ -23,10 +23,8 @@ export default function NavBar({ isLight, setIsLight }: Props) {
 
   if (user) {
     console.log(user);
-    authorised = user.sub == env.Admin || user.sub == env.Ezyh;
-    console.log("Authorised", authorised);
-    console.log(env.Ezyh);
-    console.log(env.Admin);
+    authorised =
+      user.sub == "auth0|636e5778bd5079cb566336c5" || user.sub == env.Ezyh;
   }
 
   return (
