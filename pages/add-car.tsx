@@ -43,6 +43,16 @@ export default function AddCar() {
     setPreviewImages(images);
   };
 
+  function removeImage(index: number) {
+    // This function removes an image from the preview
+    // For example, by splicing it out of the array:
+    const images = [
+      ...previewImages.slice(0, index),
+      ...previewImages.slice(index + 1),
+    ];
+    setPreviewImages(images);
+  }
+
   return (
     <Container maxWidth="none">
       <Container background="primary" maxWidth="xl">
