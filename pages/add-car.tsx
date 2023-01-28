@@ -16,6 +16,7 @@ export default function AddCar() {
     event.preventDefault();
     const form = event.dataTransfer as DataTransfer;
     const images = Array.from(form.files);
+
     if (images.length > 0 && images.length <= 40) {
       // Show the images in the preview
       console.log(images);
@@ -24,48 +25,14 @@ export default function AddCar() {
       // Handle error - either no images were dropped or too many were dropped
     }
   };
-  function moveImageUp(index) {
+  const moveImageUp = (index: number) => {
     // This function moves an image up in the preview
+    const images = [...previewImages];
+
     // For example, by swapping it with the previous image in the array:
-    const images = previewImages.slice();
-    const temp = images[index - 1];
-    images[index - 1] = images[index];
-    images[index] = temp;
+    [images[index - 1], images[index]] = [images[index], images[index - 1]];
     setPreviewImages(images);
-  }
-
-  function moveImageDown(index) {
-    // This function moves an image down in the preview
-    // For example, by swapping it with the next image in the array:
-    const images = previewImages.slice();
-    const temp = images[index + 1];
-    images[index + 1] = images[index];
-    images[index] = temp;
-    setPreviewImages(images);
-  }
-
-  function removeImage(index) {
-    // This function removes an image from the preview
-    // For example, by splicing it out of the array:
-    const images = previewImages.slice();
-    images.splice(index, 1);
-    setPreviewImages(images);
-  }
-
-  function saveImagesToDatabase() {
-    // Create a new array of URLs for the images
-    const imageURLs = previewImages.map((image) => URL.createObjectURL(image));
-
-    // // Save the URLs to the database
-    // fetch("/api/images", {
-    //   method: "POST",
-    //   body: JSON.stringify({ images: imageURLs }),
-    // });
-    console.log(imageURLs);
-
-    // Revoke the object URLs so they don't leak memory
-    imageURLs.forEach(URL.revokeObjectURL);
-  }
+  };
 
   return (
     <Container maxWidth="none">
