@@ -34,6 +34,15 @@ export default function AddCar() {
     setPreviewImages(images);
   };
 
+  const moveImageDown = (index: number) => {
+    // This function moves an image down in the preview
+    const images = [...previewImages];
+
+    // For example, by swapping it with the next image in the array:
+    [images[index + 1], images[index]] = [images[index], images[index + 1]];
+    setPreviewImages(images);
+  };
+
   return (
     <Container maxWidth="none">
       <Container background="primary" maxWidth="xl">
