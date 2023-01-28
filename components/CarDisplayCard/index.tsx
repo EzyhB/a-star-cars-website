@@ -35,6 +35,8 @@ export default function CarDiscplayCard({
     setNewImage(carImage);
   }, [carImage]);
 
+  
+
   return (
     <div className={css.cardBody}>
       <div>
