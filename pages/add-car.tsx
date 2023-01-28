@@ -53,6 +53,27 @@ export default function AddCar() {
     setPreviewImages(images);
   }
 
+  const saveImagesToDatabase = () => {
+    const formData = new FormData();
+    previewImages.forEach((image) => formData.append("images[]", image));
+
+    console.log(formData);
+
+    // Save the images to the S3 server
+    /*fetch("/api/upload", {
+      method: "POST",
+      body: formData,
+    });*/
+
+    /*(
+      // Generate URLs for the images on the server and save them to the database
+      fetch("/api/urls", {
+        method: "POST",
+        body: JSON.stringify({ images: previewImages }),
+      })
+    );*/
+  };
+
   return (
     <Container maxWidth="none">
       <Container background="primary" maxWidth="xl">
