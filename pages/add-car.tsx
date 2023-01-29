@@ -1,4 +1,10 @@
-import React, { SyntheticEvent, useState, DragEvent, useCallback } from "react";
+import React, {
+  SyntheticEvent,
+  useState,
+  DragEvent,
+  useCallback,
+  MouseEvent,
+} from "react";
 import { Container } from "../components/styles/Container";
 import { uuid } from "uuidv4";
 
@@ -136,13 +142,30 @@ export default function AddCar() {
                         onLoad={() => URL.revokeObjectURL(imageUrl)}
                       />
                       <div>{image.name}</div>
-                      <button onClick={() => moveImageUp(index)}>
+                      <button
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => {
+                          e.preventDefault();
+                          moveImageUp(index);
+                        }}
+                      >
                         Move Up
                       </button>
-                      <button onClick={() => moveImageDown(index)}>
+                      <button
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => {
+                          e.preventDefault();
+                          moveImageDown(index);
+                        }}
+                      >
                         Move Down
                       </button>
-                      <button onClick={() => removeImage(index)}>Remove</button>
+                      <button
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => {
+                          e.preventDefault();
+                          removeImage(index);
+                        }}
+                      >
+                        Remove
+                      </button>
                     </div>
                   );
                 })}
