@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useState, DragEvent, useCallback } from "react";
 import { Container } from "../components/styles/Container";
 import { uuid } from "uuidv4";
 
@@ -11,7 +11,7 @@ export default function AddCar() {
 
   const handleSubmit = (event: SyntheticEvent) => {};
 
-  const handleDrop = (event: DragEvent) => {
+  const handleDrop = useCallback((event: DragEvent<HTMLDivElement>) => {
     // This is called when one or more images are dropped on the component
     event.preventDefault();
     const form = event.dataTransfer as DataTransfer;
@@ -24,7 +24,8 @@ export default function AddCar() {
     } else {
       // Handle error - either no images were dropped or too many were dropped
     }
-  };
+  }, []);
+
   const moveImageUp = (index: number) => {
     // This function moves an image up in the preview
     const images = [...previewImages];
@@ -118,6 +119,36 @@ export default function AddCar() {
               placeholder="acceleration (0-60)"
             ></BasicInput>
             <BasicInput type="text" placeholder="power (BHP)"></BasicInput>
+
+            <div
+              onDrop={handleDrop}
+              onDragOver={(event) => event.preventDefault()}
+            >
+              Drop your images here to upload them
+              <div>
+                {previewImages.map((image, index) => {
+                  const imageUrl = URL.createObjectURL(image);
+                  return (
+                    <div key={index}>
+                      <img
+                        src={imageUrl}
+                        alt={image.name}
+                        onLoad={() => URL.revokeObjectURL(imageUrl)}
+                      />
+                      <div>{image.name}</div>
+                      <button onClick={() => moveImageUp(index)}>
+                        Move Up
+                      </button>
+                      <button onClick={() => moveImageDown(index)}>
+                        Move Down
+                      </button>
+                      <button onClick={() => removeImage(index)}>Remove</button>
+                    </div>
+                  );
+                })}
+              </div>
+              <button onClick={saveImagesToDatabase}>Save Images</button>
+            </div>
 
             <ButtonHollow size="xl" type="submit">
               Submit
