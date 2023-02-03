@@ -60,25 +60,27 @@ export default function AddCar() {
     setPreviewImages(images);
   }
 
-  const saveImagesToDatabase = () => {
+  const saveImagesToDatabase = async () => {
     const formData = new FormData();
     previewImages.forEach((image) => formData.append("images[]", image));
 
-    console.log(formData);
+    console.log("FDFDFD", Array.from(formData));
 
     // Save the images to the S3 server
-    /*fetch("/api/upload", {
+    const response = await fetch("http://localhost:3001/api/image/12345", {
       method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
       body: formData,
-    });*/
+    });
 
-    /*(
-      // Generate URLs for the images on the server and save them to the database
-      fetch("/api/urls", {
-        method: "POST",
-        body: JSON.stringify({ images: previewImages }),
-      })
-    );*/
+    /*
+    // Generate URLs for the images on the server and save them to the database
+    fetch("/api/urls", {
+      method: "POST",
+      body: JSON.stringify({ images: previewImages }),
+    });*/
   };
 
   return (
@@ -170,7 +172,14 @@ export default function AddCar() {
                   );
                 })}
               </div>
-              <button onClick={saveImagesToDatabase}>Save Images</button>
+              <button
+                onClick={(e: MouseEvent<HTMLButtonElement>) => {
+                  e.preventDefault();
+                  saveImagesToDatabase();
+                }}
+              >
+                Save Images
+              </button>
             </div>
 
             <ButtonHollow size="xl" type="submit">
