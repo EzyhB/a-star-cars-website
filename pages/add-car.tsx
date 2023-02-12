@@ -11,6 +11,7 @@ import { uuid } from "uuidv4";
 import css from "../styles/add-car.module.css";
 import BasicInput from "../components/styles/BasicInput";
 import ButtonHollow from "../components/styles/ButtonHollow";
+import { log } from "console";
 
 export default function AddCar() {
   const [previewImages, setPreviewImages] = useState<File[]>([]);
@@ -67,20 +68,14 @@ export default function AddCar() {
     console.log("FDFDFD", Array.from(formData));
 
     // Save the images to the S3 server
-    const response = await fetch("http://localhost:3001/api/image/12345", {
+    const response = await fetch("http://localhost:3001/api/v1/images/12345", {
       method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+
       body: formData,
     });
 
-    /*
-    // Generate URLs for the images on the server and save them to the database
-    fetch("/api/urls", {
-      method: "POST",
-      body: JSON.stringify({ images: previewImages }),
-    });*/
+    const postedData = await response.json();
+    console.log(postedData);
   };
 
   return (
