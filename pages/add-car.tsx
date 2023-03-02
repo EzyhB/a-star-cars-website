@@ -11,7 +11,6 @@ import { uuid } from "uuidv4";
 import css from "../styles/add-car.module.css";
 import BasicInput from "../components/styles/BasicInput";
 import ButtonHollow from "../components/styles/ButtonHollow";
-import { log } from "console";
 
 export default function AddCar() {
   const [previewImages, setPreviewImages] = useState<File[]>([]);
@@ -61,18 +60,84 @@ export default function AddCar() {
     setPreviewImages(images);
   }
 
+  async function convertPngToJpeg(pngImage: File): Promise<File> {
+    const image = new Image();
+    image.src = URL.createObjectURL(pngImage);
+
+    return new Promise<File>((resolve, reject) => {
+      image.onload = async () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        const context = canvas.getContext("2d");
+
+        if (context) {
+          context.drawImage(image, 0, 0, image.width, image.height);
+
+          canvas.toBlob(
+            async (blob) => {
+              const jpegImage = blob
+                ? new File(
+                    [blob],
+                    `${pngImage.name.replace(".png", ".jpeg")}`,
+                    {
+                      type: "image/jpeg",
+                      lastModified: Date.now(),
+                    }
+                  )
+                : null;
+
+              if (jpegImage) {
+                resolve(jpegImage);
+              } else {
+                reject(new Error("Failed to convert image to JPEG"));
+              }
+            },
+            "image/jpeg",
+            0.9
+          );
+        }
+      };
+
+      image.onerror = () => {
+        reject(new Error("Failed to load image"));
+      };
+    });
+  }
+
+  async function convertPngArrayToJpeg(pngArray: File[]): Promise<File[]> {
+    const jpegArray = [];
+
+    for (const pngImage of pngArray) {
+      if (pngImage.type === "image/png") {
+        const jpegImage = await convertPngToJpeg(pngImage);
+        jpegArray.push(jpegImage);
+      } else {
+        jpegArray.push(pngImage);
+      }
+    }
+
+    return jpegArray;
+  }
+
   const saveImagesToDatabase = async () => {
     const formData = new FormData();
+
+    // const imageArray = await convertPngArrayToJpeg(previewImages);
     previewImages.forEach((image) => formData.append("images[]", image));
 
     console.log("FDFDFD", Array.from(formData));
 
     // Save the images to the S3 server
-    const response = await fetch("http://localhost:3001/api/v1/images/12345", {
-      method: "POST",
+    const response = await fetch(
+      `http://localhost:3001/api/v1/images/${uuid()}`,
+      {
+        method: "POST",
 
-      body: formData,
-    });
+        body: formData,
+      }
+    );
 
     const postedData = await response.json();
     console.log(postedData);
