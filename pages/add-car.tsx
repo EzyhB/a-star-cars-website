@@ -60,68 +60,68 @@ export default function AddCar() {
     setPreviewImages(images);
   }
 
-  async function convertPngToJpeg(pngImage: File): Promise<File> {
-    const image = new Image();
-    image.src = URL.createObjectURL(pngImage);
+  // async function convertPngToJpeg(pngImage: File): Promise<File> {
+  //   const image = new Image();
+  //   image.src = URL.createObjectURL(pngImage);
 
-    return new Promise<File>((resolve, reject) => {
-      image.onload = async () => {
-        const canvas = document.createElement("canvas");
-        canvas.width = image.width;
-        canvas.height = image.height;
+  //   return new Promise<File>((resolve, reject) => {
+  //     image.onload = async () => {
+  //       const canvas = document.createElement("canvas");
+  //       canvas.width = image.width;
+  //       canvas.height = image.height;
 
-        const context = canvas.getContext("2d");
+  //       const context = canvas.getContext("2d");
 
-        if (context) {
-          context.drawImage(image, 0, 0, image.width, image.height);
+  //       if (context) {
+  //         context.drawImage(image, 0, 0, image.width, image.height);
 
-          canvas.toBlob(
-            async (blob) => {
-              const jpegImage = blob
-                ? new File(
-                    [blob],
-                    `${pngImage.name.replace(".png", ".jpeg")}`,
-                    {
-                      type: "image/jpeg",
-                      lastModified: Date.now(),
-                    }
-                  )
-                : null;
+  //         canvas.toBlob(
+  //           async (blob) => {
+  //             const jpegImage = blob
+  //               ? new File(
+  //                   [blob],
+  //                   `${pngImage.name.replace(".png", ".jpeg")}`,
+  //                   {
+  //                     type: "image/jpeg",
+  //                     lastModified: Date.now(),
+  //                   }
+  //                 )
+  //               : null;
 
-              if (jpegImage) {
-                resolve(jpegImage);
-              } else {
-                reject(new Error("Failed to convert image to JPEG"));
-              }
-            },
-            "image/jpeg",
-            0.9
-          );
-        }
-      };
+  //             if (jpegImage) {
+  //               resolve(jpegImage);
+  //             } else {
+  //               reject(new Error("Failed to convert image to JPEG"));
+  //             }
+  //           },
+  //           "image/jpeg",
+  //           0.9
+  //         );
+  //       }
+  //     };
 
-      image.onerror = () => {
-        reject(new Error("Failed to load image"));
-      };
-    });
-  }
+  //     image.onerror = () => {
+  //       reject(new Error("Failed to load image"));
+  //     };
+  //   });
+  // }
 
-  async function convertPngArrayToJpeg(pngArray: File[]): Promise<File[]> {
-    const jpegArray = [];
+  // async function convertPngArrayToJpeg(pngArray: File[]): Promise<File[]> {
+  //   const jpegArray = [];
 
-    for (const pngImage of pngArray) {
-      if (pngImage.type === "image/png") {
-        const jpegImage = await convertPngToJpeg(pngImage);
-        jpegArray.push(jpegImage);
-      } else {
-        jpegArray.push(pngImage);
-      }
-    }
+  //   for (const pngImage of pngArray) {
+  //     if (pngImage.type === "image/png") {
+  //       const jpegImage = await convertPngToJpeg(pngImage);
+  //       jpegArray.push(jpegImage);
+  //     } else {
+  //       jpegArray.push(pngImage);
+  //     }
+  //   }
 
-    return jpegArray;
-  }
+  //   return jpegArray;
+  // }
 
-  const saveImagesToDatabase = async () => {
+  const saveImagesToS3 = async (ID: string) => {
     const formData = new FormData();
 
     // const imageArray = await convertPngArrayToJpeg(previewImages);
@@ -130,8 +130,8 @@ export default function AddCar() {
     console.log("FDFDFD", Array.from(formData));
 
     // Save the images to the S3 server
-    const response = await fetch(
-      `http://localhost:3001/api/v1/images/${uuid()}`,
+    const ImageResponse = await fetch(
+      `http://localhost:3001/api/v1/images/${ID}`,
       {
         method: "POST",
 
@@ -139,8 +139,62 @@ export default function AddCar() {
       }
     );
 
-    const postedData = await response.json();
+    const postedData = await ImageResponse.json();
     console.log(postedData);
+  };
+
+  const saveNewCar = async (event: SyntheticEvent) => {
+    const ID = uuid();
+    const URL = `${process.env.POSTGRES_BACKEND}/${ID}`;
+
+    const form = event.target as HTMLFormElement;
+    const name = form[0] as HTMLInputElement;
+    const subName = form[1] as HTMLInputElement;
+    const price = form[2] as HTMLInputElement;
+    const miles = form[3] as HTMLInputElement;
+    const reg = form[4] as HTMLInputElement;
+    const trans = form[5] as HTMLInputElement;
+    const fuel = form[6] as HTMLInputElement;
+    const seats = form[7] as HTMLInputElement;
+    const engine = form[8] as HTMLInputElement;
+    const bodyType = form[9] as HTMLInputElement;
+    const exteriorColor = form[10] as HTMLInputElement;
+    const driveType = form[11] as HTMLInputElement;
+    const regNum = form[12] as HTMLInputElement;
+    const previousOwner = form[13] as HTMLInputElement;
+    const numOfKeys = form[14] as HTMLInputElement;
+    const topSpeed = form[15] as HTMLInputElement;
+    const acceleration = form[16] as HTMLInputElement;
+    const power = form[17] as HTMLInputElement;
+
+    const postData = {
+      name: name.value,
+      subName: subName.value,
+      price: price.value,
+      miles: miles.value,
+      reg: reg.value,
+      trans: trans.value,
+      fuel: fuel.value,
+      seats: seats.value,
+      engine: engine.value,
+      bodyType: bodyType.value,
+      exteriorColour: exteriorColor.value,
+      driveType: driveType.value,
+      regNum: regNum.value,
+      previousOwners: previousOwner.value,
+      numOfKeys: numOfKeys.value,
+      topSpeed: topSpeed.value,
+      acceleration: acceleration.value,
+      power: power.value,
+    };
+
+    saveImagesToS3(ID);
+
+    const data = await fetch(URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postData),
+    });
   };
 
   return (
@@ -235,7 +289,7 @@ export default function AddCar() {
               <button
                 onClick={(e: MouseEvent<HTMLButtonElement>) => {
                   e.preventDefault();
-                  saveImagesToDatabase();
+                  // saveImagesToDatabase(lol);
                 }}
               >
                 Save Images
