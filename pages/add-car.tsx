@@ -15,7 +15,7 @@ import ButtonHollow from "../components/styles/ButtonHollow";
 export default function AddCar() {
   const [previewImages, setPreviewImages] = useState<File[]>([]);
 
-  const handleSubmit = (event: SyntheticEvent) => {};
+  // const handleSubmit = (event: SyntheticEvent) => {};
 
   const handleDrop = useCallback((event: DragEvent<HTMLDivElement>) => {
     // This is called when one or more images are dropped on the component
@@ -124,8 +124,15 @@ export default function AddCar() {
   const saveImagesToS3 = async (ID: string) => {
     const formData = new FormData();
 
-    // const imageArray = await convertPngArrayToJpeg(previewImages);
-    previewImages.forEach((image) => formData.append("images[]", image));
+    let counter = 0;
+    previewImages.forEach((image) => {
+      // Rename file to desired name
+      const renamedFile = new File([image], `${counter++}.jpeg`, {
+        type: image.type,
+        lastModified: Date.now(),
+      });
+      formData.append("images[]", renamedFile);
+    });
 
     console.log("FDFDFD", Array.from(formData));
 
@@ -143,7 +150,8 @@ export default function AddCar() {
     console.log(postedData);
   };
 
-  const saveNewCar = async (event: SyntheticEvent) => {
+  const handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
     const ID = uuid();
     const URL = `${process.env.POSTGRES_BACKEND}/${ID}`;
 
@@ -166,35 +174,45 @@ export default function AddCar() {
     const topSpeed = form[15] as HTMLInputElement;
     const acceleration = form[16] as HTMLInputElement;
     const power = form[17] as HTMLInputElement;
+    const length = previewImages.length - 1;
 
     const postData = {
       name: name.value,
       subName: subName.value,
-      price: price.value,
-      miles: miles.value,
-      reg: reg.value,
+      price: Number(price.value),
+      miles: Number(miles.value),
+      reg: Number(reg.value),
       trans: trans.value,
       fuel: fuel.value,
-      seats: seats.value,
-      engine: engine.value,
+      seats: Number(seats.value),
+      engine: parseFloat(engine.value),
       bodyType: bodyType.value,
       exteriorColour: exteriorColor.value,
       driveType: driveType.value,
       regNum: regNum.value,
-      previousOwners: previousOwner.value,
-      numOfKeys: numOfKeys.value,
-      topSpeed: topSpeed.value,
-      acceleration: acceleration.value,
-      power: power.value,
+      previousOwners: Number(previousOwner.value),
+      numOfKeys: Number(numOfKeys.value),
+      topSpeed: Number(topSpeed.value),
+      acceleration: parseFloat(acceleration.value),
+      power: Number(power.value),
+      num_of_images: length,
     };
+
+    console.log(postData);
 
     saveImagesToS3(ID);
 
-    const data = await fetch(URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(postData),
-    });
+    const data = await fetch(
+      `https://a-star-cars-backend.vercel.app/api/car/${ID}`,
+      {
+        method: "POST",
+
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postData),
+      }
+    );
+
+    console.log(data);
   };
 
   return (

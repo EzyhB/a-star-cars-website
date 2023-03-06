@@ -22,10 +22,10 @@ export interface Params extends ParsedUrlQuery {
 
 interface propss {
   carz: Carr;
-  image: FetchImage;
+  // image: FetchImage;
 }
 
-export default function Car({ carz, image }: propss) {
+export default function Car({ carz }: propss) {
   const metaContent = `You can get the best price ${carz.name}, ${carz.sub_name}. We sell cars for all brands in the country. We are the best place to buy your dream car at affordable price.`;
 
   function numberWithCommas(x: number) {
@@ -48,7 +48,8 @@ export default function Car({ carz, image }: propss) {
       <Container padding="no" className={css.topMargin}>
         <GridContainer>
           <GridItem lg="eight" md="seven">
-            <Carousel images={image} />
+            {/* <Carousel images={image} /> */}
+            <img src="https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/95434f9c-3686-4dfa-a0d6-d64f27ddb043/1.jpeg"></img>
           </GridItem>
           <GridItem lg="four" md="five" className={css.carPaymentInfoGrid}>
             <div className={css.carPaymentInfoCard}>
@@ -235,15 +236,21 @@ export const getServerSideProps = async (
   );
   const data = await res.json();
 
-  const res1 = await fetch(
-    `https://a-star-cars-backend.vercel.app/api/image/${id}`
-  );
-  const data1 = await res1.json();
+  // const res1 = await fetch(`http://localhost:3001/api/v1/images/${id}`);
+  // const data1 = await res1.json();
+  // const response = await fetch("http://localhost:3001/api/v1/images");
+  // const data1 = await response.json();
+  // const images = data1.map((key: string) => ({
+  //   key,
+  //   url: `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${key}`,
+  // }));
+
+  // console.log(images);
 
   return {
     props: {
       carz: data[0],
-      image: data1[0],
+      // image: res1,
     },
   };
 };
