@@ -8,39 +8,79 @@ import { FetchImage as Images } from "../../pages";
 import css from "./Carousel.module.css";
 
 interface Props {
-  images: Images;
+  carID: string;
+  length: number;
 }
 
-export default function Carousel({ images }: Props) {
-  const [mainImage, setMainImage] = useState(images["image1"]);
-  const [carouselNav, setCarouselNav] = useState(1);
-  const [NavImage1, setNavImage1] = useState(mainImage[carouselNav - 1]);
-  const [NavImage2, setNavImage2] = useState(mainImage[carouselNav]);
-  const [NavImage3, setNavImage3] = useState(mainImage[carouselNav + 1]);
+let string =
+  "https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/8712d343-1b1f-4a05-97d4-d0b24ed6d245/2.jpeg";
 
-  useEffect(() => {
-    setMainImage(Object.values(images)[1]);
-    setNavImage1(Object.values(images)[1]);
-    setNavImage2(Object.values(images)[2]);
-    setNavImage3(Object.values(images)[3]);
-  }, [images]);
+export default function Carousel({ carID, length }: Props) {
+  const [carouselNav, setCarouselNav] = useState(0);
+  const [mainImage, setMainImage] = useState(
+    `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${carouselNav}.jpeg`
+  );
+  const [NavImage1, setNavImage1] = useState(
+    `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${carouselNav}.jpeg`
+  );
+  const [NavImage2, setNavImage2] = useState(
+    `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+      carouselNav + 1
+    }.jpeg`
+  );
+  const [NavImage3, setNavImage3] = useState(
+    `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+      carouselNav + 2
+    }.jpeg`
+  );
+
+  // useEffect(() => {
+  //   setMainImage(Object.values(images)[1]);
+  //   setNavImage1(Object.values(images)[1]);
+  //   setNavImage2(Object.values(images)[2]);
+  //   setNavImage3(Object.values(images)[3]);
+  // }, [images]);
 
   const handleNavButtonClick = (operation: string) => {
     if (operation == "add") {
-      if (carouselNav == 38) {
+      if (carouselNav == length - 2) {
         return;
       }
-      setNavImage1(Object.values(images)[carouselNav + 1]);
-      setNavImage2(Object.values(images)[carouselNav + 2]);
-      setNavImage3(Object.values(images)[carouselNav + 3]);
+      setNavImage1(
+        `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+          carouselNav + 1
+        }.jpeg`
+      );
+      setNavImage2(
+        `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+          carouselNav + 2
+        }.jpeg`
+      );
+      setNavImage3(
+        `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+          carouselNav + 3
+        }.jpeg`
+      );
       setCarouselNav(carouselNav + 1);
     } else {
-      if (carouselNav == 1) {
+      if (carouselNav == 0) {
         return;
       }
-      setNavImage1(Object.values(images)[carouselNav - 1]);
-      setNavImage2(Object.values(images)[carouselNav]);
-      setNavImage3(Object.values(images)[carouselNav + 1]);
+      setNavImage1(
+        `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+          carouselNav - 1
+        }.jpeg`
+      );
+      setNavImage2(
+        `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+          carouselNav - 2
+        }.jpeg`
+      );
+      setNavImage3(
+        `https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/${carID}/${
+          carouselNav - 3
+        }.jpeg`
+      );
       setCarouselNav(carouselNav - 1);
     }
   };

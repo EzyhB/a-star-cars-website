@@ -37,6 +37,7 @@ export interface Car {
   acceleration: string;
   power: number;
   created: string;
+  num_of_images: number;
 }
 
 export interface FetchImage {

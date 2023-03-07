@@ -124,6 +124,8 @@ export default function AddCar() {
   const saveImagesToS3 = async (ID: string) => {
     const formData = new FormData();
 
+    // const jpegArrayImages = await convertPngArrayToJpeg(previewImages);
+
     let counter = 0;
     previewImages.forEach((image) => {
       // Rename file to desired name
@@ -154,6 +156,8 @@ export default function AddCar() {
     event.preventDefault();
     const ID = uuid();
     const URL = `${process.env.POSTGRES_BACKEND}/${ID}`;
+    const serverURL = `https://a-star-cars-backend.vercel.app/api/car/${ID}`;
+    const localURL = `http://localhost:3002/api/car/${ID}`;
 
     const form = event.target as HTMLFormElement;
     const name = form[0] as HTMLInputElement;
@@ -202,15 +206,12 @@ export default function AddCar() {
 
     saveImagesToS3(ID);
 
-    const data = await fetch(
-      `https://a-star-cars-backend.vercel.app/api/car/${ID}`,
-      {
-        method: "POST",
+    const data = await fetch(serverURL, {
+      method: "POST",
 
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(postData),
-      }
-    );
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postData),
+    });
 
     console.log(data);
   };

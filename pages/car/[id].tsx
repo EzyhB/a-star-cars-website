@@ -22,10 +22,10 @@ export interface Params extends ParsedUrlQuery {
 
 interface propss {
   carz: Carr;
-  // image: FetchImage;
+  carID: string;
 }
 
-export default function Car({ carz }: propss) {
+export default function Car({ carz, carID }: propss) {
   const metaContent = `You can get the best price ${carz.name}, ${carz.sub_name}. We sell cars for all brands in the country. We are the best place to buy your dream car at affordable price.`;
 
   function numberWithCommas(x: number) {
@@ -48,8 +48,8 @@ export default function Car({ carz }: propss) {
       <Container padding="no" className={css.topMargin}>
         <GridContainer>
           <GridItem lg="eight" md="seven">
-            {/* <Carousel images={image} /> */}
-            <img src="https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/95434f9c-3686-4dfa-a0d6-d64f27ddb043/1.jpeg"></img>
+            <Carousel carID={carID} length={carz.num_of_images} />
+            {/* <img src="https://astarcarsales-bucket.s3.eu-west-2.amazonaws.com/a458d711-f2c5-4d66-a102-6568cfe02668/26.jpeg"></img> */}
           </GridItem>
           <GridItem lg="four" md="five" className={css.carPaymentInfoGrid}>
             <div className={css.carPaymentInfoCard}>
@@ -250,7 +250,7 @@ export const getServerSideProps = async (
   return {
     props: {
       carz: data[0],
-      // image: res1,
+      carID: id,
     },
   };
 };
